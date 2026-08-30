@@ -460,3 +460,90 @@ footer h3{font-size:1.15rem;color:var(--rose-200);margin-bottom:14px}
   .specimen{padding:22px}
   .pdp-cta{position:sticky;bottom:0;background:#fff;border-top:1px solid var(--line);padding:14px 0;box-shadow:0 -6px 20px rgba(74,16,24,.08)}
 }
+
+/* ==========================================================================
+   Added for the six-product range: lead-time notices, tier tables and the
+   personalisation dialog that captures couple names, dates and wording.
+   ========================================================================== */
+
+/* Lead time */
+.leadtime-pill{
+  display:inline-flex;align-items:center;gap:7px;background:var(--blush-50);
+  border:1px solid var(--line);border-radius:999px;padding:6px 14px;
+  font-size:.76rem;font-weight:600;color:var(--burgundy-900);letter-spacing:.3px;
+}
+.leadtime-pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.leadtime-banner{
+  background:var(--burgundy-900);color:var(--blush-50);text-align:center;
+  padding:11px 16px;font-size:.82rem;letter-spacing:.3px;
+}
+.leadtime-banner strong{color:var(--rose-200)}
+.product .leadtime-note{font-size:.72rem;color:var(--ink-muted);margin:0 0 12px;flex:0}
+
+/* Tier table on cards and in the dialog */
+.tiers-table{width:100%;border-collapse:collapse;font-size:.78rem;margin:2px 0 12px}
+.tiers-table th,.tiers-table td{padding:5px 8px;text-align:left;border-bottom:1px dashed var(--line)}
+.tiers-table th{color:var(--burgundy-900);font-weight:600;background:var(--blush-50)}
+.tiers-table td{color:var(--ink-muted)}
+.tiers-table tr:last-child td,.tiers-table tr:last-child th{border-bottom:none}
+.tiers-table .is-active td,.tiers-table .is-active th{background:var(--blush-50);color:var(--burgundy-700);font-weight:700}
+
+/* Personalisation dialog */
+.dlg{
+  position:fixed;inset:0;z-index:1100;display:none;
+  align-items:flex-start;justify-content:center;padding:24px 16px;overflow-y:auto;
+  background:rgba(43,29,32,.55);
+}
+.dlg[data-open="true"]{display:flex}
+.dlg-panel{
+  background:#fff;border-radius:var(--r);width:min(620px,100%);
+  box-shadow:0 24px 70px rgba(74,16,24,.3);margin:auto;overflow:hidden;
+}
+.dlg-head{padding:22px 26px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+.dlg-head h2{font-size:1.6rem;line-height:1.15}
+.dlg-head p{font-size:.82rem;color:var(--ink-muted);margin-top:4px}
+.dlg-close{background:none;border:none;font-size:1.7rem;line-height:1;cursor:pointer;color:var(--ink-muted);padding:0 4px}
+.dlg-body{padding:22px 26px;max-height:min(62vh,640px);overflow-y:auto}
+.dlg-foot{padding:18px 26px 22px;border-top:1px solid var(--line);background:var(--blush-50)}
+
+.dlg .field{margin-bottom:16px}
+.dlg .field label{
+  display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:1px;
+  font-weight:700;color:var(--burgundy-900);margin-bottom:6px;
+}
+.dlg .field .req{color:var(--rose-600)}
+.dlg .field input,.dlg .field select,.dlg .field textarea{
+  width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:8px;
+  font:inherit;font-size:.9rem;background:#fff;color:var(--ink);
+}
+.dlg .field textarea{min-height:82px;resize:vertical}
+.dlg .field input:focus,.dlg .field select:focus,.dlg .field textarea:focus{border-color:var(--rose-400);outline-offset:1px}
+.dlg .field .hint{font-size:.74rem;color:var(--ink-muted);margin-top:5px}
+.dlg .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.dlg .field[data-invalid="true"] input,.dlg .field[data-invalid="true"] textarea{border-color:#C0392B;border-width:2px}
+.dlg .err{display:none;font-size:.76rem;color:#A93226;margin-top:5px;font-weight:600}
+.dlg .field[data-invalid="true"] .err{display:block}
+
+.dlg-price{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+.dlg-price strong{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--burgundy-700);line-height:1}
+.dlg-per{font-size:.78rem;color:var(--ink-muted);margin-bottom:14px}
+.dlg-lead{font-size:.75rem;color:var(--gold-800);font-weight:700;margin-bottom:14px}
+
+@media (max-width:640px){
+  .dlg{padding:0}
+  .dlg-panel{border-radius:0;min-height:100dvh}
+  .dlg-body{max-height:none}
+  .dlg .field-row{grid-template-columns:1fr}
+}
+
+/* Real-photography feature block */
+.showcase{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+.showcase .media{border-radius:var(--r);box-shadow:var(--shadow-lg);height:520px}
+.showcase h2{font-size:clamp(1.9rem,4vw,2.5rem);margin-bottom:14px}
+.showcase p{color:var(--ink-muted);margin-bottom:16px}
+@media (max-width:992px){.showcase{grid-template-columns:1fr;gap:28px}.showcase .media{height:340px}}
+
+/* Range grid — six products, larger cards */
+.range{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:26px}
+.range .product .media{height:250px}
+.price-from{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--ink-muted);font-weight:600;display:block}
