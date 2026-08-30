@@ -583,3 +583,44 @@ footer h3{font-size:1.15rem;color:var(--rose-200);margin-bottom:14px}
   .media img[src*="personalised-stickers"],
   .media img[src*="wedding-favours"]{background:var(--blush-50)}
 }
+
+/* ==========================================================================
+   Variant chooser — the grid of styles on a product page
+   ========================================================================== */
+
+.variants{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px}
+.variant{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden;box-shadow:var(--shadow-sm);text-align:left;padding:0;
+  cursor:pointer;transition:all .28s var(--ease);display:flex;flex-direction:column;
+  font:inherit;color:inherit;width:100%;
+}
+.variant:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--rose-400)}
+.variant .media{height:210px}
+.variant-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+.variant-body h3{font-size:1.2rem;margin-bottom:4px}
+.variant-price{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--burgundy-700);line-height:1.1}
+.variant-price small{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:.7rem;font-weight:500;color:var(--ink-muted);letter-spacing:.2px}
+.variant-body p{font-size:.83rem;color:var(--ink-muted);line-height:1.5;margin:8px 0 14px;flex:1}
+.variant-cta{
+  font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;
+  color:var(--burgundy-700);display:flex;align-items:center;gap:6px;
+}
+.variant-cta::after{content:"→";transition:transform .25s var(--ease)}
+.variant:hover .variant-cta::after{transform:translateX(4px)}
+.variant-flag{
+  position:absolute;top:12px;left:12px;z-index:2;background:var(--gold);
+  color:var(--burgundy-900);font-size:.64rem;font-weight:700;letter-spacing:.7px;
+  text-transform:uppercase;padding:4px 10px;border-radius:12px;
+}
+
+/* Product page intro */
+.p-intro{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center;padding:46px 0 8px}
+.p-intro .media{border-radius:var(--r);box-shadow:var(--shadow-lg);height:460px;background:var(--blush-50)}
+.p-intro h1{font-size:clamp(2.1rem,4.6vw,3rem);margin:6px 0 14px}
+.p-intro .price{font-size:1.6rem;margin-bottom:14px;display:block}
+.p-intro .lede{margin-bottom:18px}
+.p-facts{display:grid;gap:9px;margin:20px 0 24px}
+.p-facts li{font-size:.87rem;color:var(--ink-muted);padding-left:24px;position:relative}
+.p-facts li::before{content:"✓";position:absolute;left:0;color:var(--rose-600);font-weight:700}
+@media (max-width:992px){.p-intro{grid-template-columns:1fr;gap:26px;padding-top:28px}.p-intro .media{height:320px}}
