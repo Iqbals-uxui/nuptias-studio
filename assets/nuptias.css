@@ -547,3 +547,39 @@ footer h3{font-size:1.15rem;color:var(--rose-200);margin-bottom:14px}
 .range{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:26px}
 .range .product .media{height:250px}
 .price-from{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--ink-muted);font-weight:600;display:block}
+
+/* ==========================================================================
+   Real product photography.
+   The stock placeholders are landscape and crop happily. Our own photographs
+   are square (the sticker) and portrait (the favour bottle), so they must be
+   shown whole — a cropped circular sticker loses the wording around its edge.
+   Targeted by filename so no HTML changes are needed when photos are swapped.
+   ========================================================================== */
+
+.media img[src*="personalised-stickers"],
+.media img[src*="wedding-favours"]{
+  object-fit:contain;
+}
+
+.media:has(img[src*="personalised-stickers"]),
+.media:has(img[src*="wedding-favours"]){
+  background:var(--blush-50);
+  padding:14px;
+}
+
+/* Give the two portrait/square cards a little more height so they don't
+   sit in a letterboxed sliver. */
+.range .product .media:has(img[src*="personalised-stickers"]),
+.range .product .media:has(img[src*="wedding-favours"]){
+  height:300px;
+}
+
+/* The showcase blocks are large enough already — just remove the crop. */
+.showcase .media:has(img[src*="wedding-favours"]){height:560px;padding:20px}
+.showcase .media:has(img[src*="personalised-stickers"]){padding:24px}
+
+/* Fallback for browsers without :has() — no padded backdrop, but still uncropped */
+@supports not selector(:has(*)){
+  .media img[src*="personalised-stickers"],
+  .media img[src*="wedding-favours"]{background:var(--blush-50)}
+}
