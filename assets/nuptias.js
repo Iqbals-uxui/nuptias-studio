@@ -327,7 +327,7 @@
     '</div>';
   }
 
-  function openDialog(id) {
+  function openDialog(id, preset) {
     var p = PRODUCTS[id];
     if (!p) return;
     if (!dlg) buildDialog();
@@ -358,6 +358,16 @@
     dlg.querySelector('#dlgBody').innerHTML =
       (p.tiers && p.tiers.length > 1 ? tierTable(p) : '') +
       fields.map(fieldHTML).join('');
+
+    /* A variant card can arrive with choices already made, e.g.
+       {"vessel":0,"tag":1} — so the customer isn't asked twice. */
+    if (preset) {
+      Object.keys(preset).forEach(function (key) {
+        var el = dlg.querySelector('#pf-' + key);
+        if (el && el.tagName === 'SELECT') el.value = String(preset[key]);
+        else if (el) el.value = preset[key];
+      });
+    }
 
     dlg.setAttribute('data-open', 'true');
     document.body.style.overflow = 'hidden';
@@ -451,7 +461,11 @@
     var t = e.target.closest('[data-personalise]');
     if (!t) return;
     e.preventDefault();
-    openDialog(t.getAttribute('data-personalise'));
+    var preset = null;
+    if (t.dataset.preset) {
+      try { preset = JSON.parse(t.dataset.preset); } catch (err) { preset = null; }
+    }
+    openDialog(t.getAttribute('data-personalise'), preset);
   });
 
   /* ---------- Collection preference ---------- */
