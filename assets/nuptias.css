@@ -624,3 +624,22 @@ footer h3{font-size:1.15rem;color:var(--rose-200);margin-bottom:14px}
 .p-facts li{font-size:.87rem;color:var(--ink-muted);padding-left:24px;position:relative}
 .p-facts li::before{content:"✓";position:absolute;left:0;color:var(--rose-600);font-weight:700}
 @media (max-width:992px){.p-intro{grid-template-columns:1fr;gap:26px;padding-top:28px}.p-intro .media{height:320px}}
+
+/* ==========================================================================
+   Range cards: shop-window treatment.
+   Photo, name, one line, one action. Detail belongs on the product page.
+   ========================================================================== */
+
+.range{grid-template-columns:repeat(auto-fill,minmax(275px,1fr));gap:22px}
+.range .product .media{height:215px}
+.range .product-body{padding:15px 18px 18px}
+.range .product .kicker{margin-bottom:2px;font-size:.65rem}
+.range .product h3{font-size:1.2rem;margin-bottom:7px}
+.range .product p{font-size:.85rem;line-height:1.45;margin:0 0 14px}
+.range .product .card-actions{margin-top:auto}
+.range .detail-link{padding:10px 14px;font-size:.74rem}
+
+/* The square sticker and portrait bottle no longer need extra height now the
+   cards are shorter — keep them uncropped but in proportion with the others. */
+.range .product .media:has(img[src*="personalised-stickers"]),
+.range .product .media:has(img[src*="wedding-favours"]){height:250px;padding:10px}
