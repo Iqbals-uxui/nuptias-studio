@@ -1,668 +1,471 @@
-/* ==========================================================================
-   Nuptias Celebration Studio — shared stylesheet
-   Loaded by every page. Page-specific overrides go in a <style> block below
-   this file's <link>, never inside here.
-   ========================================================================== */
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-:root{
-  /* Palette. Rose and gold are split: a decorative tint and a text-safe tone,
-     because the original values failed WCAG AA when used for text. */
-  --burgundy-900:#4A1018;
-  --burgundy-700:#6B1A27;
-  --rose-600:#A85260;
-  --rose-400:#C87A88;
-  --rose-200:#E6B2BA;
-  --blush-50:#FAF2F4;
-  --paper:#FCFAFA;
-  --card:#FFFFFF;
-  --ink:#2B1D20;
-  --ink-muted:#5C494D;
-  --line:#EBD9DD;
-  --gold:#C59B27;
-  --gold-800:#7A5F0E;
-  --sage:#8A9A86;
+<title>Personalised Favour Bottles, Stickers, Invitations &amp; Tags | Nuptias Celebration Studio</title>
+<meta name="description" content="Personalised wedding favour bottles, stickers, invitations and favour tags. Zam Zam water bottles, Arabic calligraphy and bilingual designs. Nikah and Walima specialists, handmade in the UK. 3 week lead time.">
+<meta name="keywords" content="Zam Zam water bottle favours, personalised wedding stickers, Nikah invitations, Walima favours, favour tags with twine, Arabic calligraphy stickers, wedding favours UK">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Nuptias Celebration Studio">
+<meta name="theme-color" content="#4A1018">
+<link rel="canonical" href="https://www.nuptias.co.uk/">
 
-  --shadow-sm:0 4px 15px rgba(74,16,24,.05);
-  --shadow-lg:0 14px 40px rgba(74,16,24,.10);
-  --ease:cubic-bezier(.25,.8,.25,1);
-  --r:12px;
-  --maxw:1200px;
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nuptias Celebration Studio">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Personalised Favour Bottles, Stickers, Invitations &amp; Tags | Nuptias">
+<meta property="og:description" content="Zam Zam water bottle favours, personalised stickers, invitations and tags. Nikah and Walima specialists, handmade in the UK.">
+<meta property="og:url" content="https://www.nuptias.co.uk/">
+<meta property="og:image" content="https://www.nuptias.co.uk/images/wedding-favours.jpg">
+<meta property="og:image:alt" content="Personalised Zam Zam water bottle favour with a kraft tag and Arabic calligraphy sticker">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Personalised Favour Bottles, Stickers, Invitations &amp; Tags | Nuptias">
+<meta name="twitter:description" content="Zam Zam bottle favours, stickers, invitations and tags. Handmade in the UK.">
+<meta name="twitter:image" content="https://www.nuptias.co.uk/images/wedding-favours.jpg">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%234A1018'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%23E6B2BA' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/nuptias.css">
+
+<style>
+  /* Your own photo first, stock placeholder behind it.
+     Drop images/hero.jpg in and it takes over automatically. */
+  .hero{
+    background:
+      linear-gradient(rgba(74,16,24,.68),rgba(74,16,24,.76)),
+      url('images/hero.jpg') center/cover no-repeat,
+      url('https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat,
+      var(--burgundy-900);
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Store",
+      "@id":"https://www.nuptias.co.uk/#business",
+      "name":"Nuptias Celebration Studio",
+      "description":"Personalised favour bottles, stickers, wedding invitations and favour tags, handmade in the UK. Nikah, Walima and Mehndi specialists.",
+      "url":"https://www.nuptias.co.uk/",
+      "email":"hello@nuptias.co.uk",
+      "image":"https://www.nuptias.co.uk/images/wedding-favours.jpg",
+      "priceRange":"£",
+      "currenciesAccepted":"GBP",
+      "areaServed":{"@type":"Country","name":"United Kingdom"},
+      "address":{"@type":"PostalAddress","addressCountry":"GB"},
+      "openingHoursSpecification":[{
+        "@type":"OpeningHoursSpecification",
+        "dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+        "opens":"09:00","closes":"18:00"
+      }],
+      "sameAs":["https://www.instagram.com/nuptias"]
+    },
+    {
+      "@type":"WebSite",
+      "@id":"https://www.nuptias.co.uk/#website",
+      "url":"https://www.nuptias.co.uk/",
+      "name":"Nuptias Celebration Studio",
+      "publisher":{"@id":"https://www.nuptias.co.uk/#business"},
+      "inLanguage":"en-GB"
+    },
+    {
+      "@type":"ItemList",
+      "name":"Nuptias categories",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Favour bottles","url":"https://www.nuptias.co.uk/categories/bottles.html"},
+        {"@type":"ListItem","position":2,"name":"Personalised stickers","url":"https://www.nuptias.co.uk/categories/stickers.html"},
+        {"@type":"ListItem","position":3,"name":"Wedding invitations","url":"https://www.nuptias.co.uk/categories/wedding-invitations.html"},
+        {"@type":"ListItem","position":4,"name":"Favour tags","url":"https://www.nuptias.co.uk/categories/favour-tags.html"}
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"How long does an order take?",
+          "acceptedAnswer":{"@type":"Answer","text":"Three weeks from the point you approve your proof. Proofs are sent within three working days of ordering, so allow around four weeks in total from first contact. Plain bottles with no personalisation ship within one week."}},
+        {"@type":"Question","name":"Can I order bottles without stickers, or stickers without bottles?",
+          "acceptedAnswer":{"@type":"Answer","text":"Yes. Every category is sold separately with its own minimum order, so you can buy only what you need. Adding stickers or tags while ordering bottles is cheaper than ordering them separately, because it shares one design setup."}},
+        {"@type":"Question","name":"Do you supply the Zam Zam water?",
+          "acceptedAnswer":{"@type":"Answer","text":"No. Bottles are supplied empty and unsealed with the caps loose, so you fill them yourself. Most couples do this in the week before the celebration."}},
+        {"@type":"Question","name":"Can you print Arabic calligraphy?",
+          "acceptedAnswer":{"@type":"Answer","text":"Yes, in-house, including bilingual English and Arabic layouts on stickers, tags and invitations. We always send a proof of the Arabic for you to check before printing."}},
+        {"@type":"Question","name":"What are the minimum orders?",
+          "acceptedAnswer":{"@type":"Answer","text":"Fifty bottles, one hundred stickers, fifty favour tags, or thirty invitation suites. Unit prices fall as quantities rise, so larger Nikah and Walima celebrations get considerably better value."}},
+        {"@type":"Question","name":"Do you deliver across the UK?",
+          "acceptedAnswer":{"@type":"Answer","text":"Yes, tracked UK delivery as standard and free on orders over £150. Glass bottles are packed in fitted trays and anything that arrives damaged is remade at no cost."}}
+      ]
+    }
+  ]
 }
-
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:100px}
-body{
-  font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
-  background:var(--paper);color:var(--ink);
-  line-height:1.7;font-size:15.5px;-webkit-font-smoothing:antialiased;
-}
-h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;color:var(--burgundy-900);letter-spacing:.2px;line-height:1.2}
-a{color:inherit;text-decoration:none}
-ul,ol{list-style:none}
-img{display:block;width:100%;height:auto}
-button{font:inherit}
-
-:focus-visible{outline:3px solid var(--rose-600);outline-offset:2px;border-radius:4px}
-.skip-link{position:absolute;left:-9999px;top:0;background:var(--burgundy-900);color:#fff;padding:12px 20px;z-index:2000}
-.skip-link:focus{left:0}
-.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
-}
-
-.container{width:min(92%,var(--maxw));margin-inline:auto}
-.section{padding:84px 0}
-.section--sm{padding:56px 0}
-.section--tint{background:var(--blush-50);border-block:1px solid var(--line)}
-.section-head{text-align:center;max-width:680px;margin:0 auto 46px}
-.section-head--left{text-align:left;margin-inline:0}
-.eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--rose-600);font-size:1.35rem;display:block;margin-bottom:2px}
-.section-title{font-size:clamp(2rem,4.2vw,2.6rem)}
-.section-intro{color:var(--ink-muted);font-size:.95rem;margin-top:10px}
-.lede{font-size:1.02rem;color:var(--ink-muted)}
-
-/* ---------- Top bar & header ---------- */
-.topbar{background:var(--burgundy-900);color:var(--blush-50);text-align:center;padding:10px 16px;font-size:.78rem;letter-spacing:1.1px;text-transform:uppercase}
-.site-header{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:900;box-shadow:var(--shadow-sm)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 0;position:relative}
-.logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;line-height:.95;color:var(--burgundy-900)}
-.logo span{display:block;margin-top:6px;font-family:'Plus Jakarta Sans',sans-serif;font-size:.62rem;letter-spacing:3.2px;color:var(--rose-600);font-weight:500}
-.nav{display:flex;gap:26px;align-items:center}
-.nav a{font-size:.8rem;font-weight:600;letter-spacing:.6px;text-transform:uppercase;transition:color .25s var(--ease)}
-.nav a:hover,.nav a[aria-current="page"]{color:var(--burgundy-700)}
-.header-actions{display:flex;align-items:center;gap:10px}
-.cart-btn{background:var(--blush-50);color:var(--burgundy-900);border:1px solid var(--line);padding:9px 18px;border-radius:30px;font-size:.8rem;font-weight:600;cursor:pointer;transition:all .25s var(--ease);display:flex;align-items:center;gap:7px}
-.cart-btn:hover{background:var(--burgundy-700);color:#fff;border-color:var(--burgundy-700)}
-.cart-count{background:var(--burgundy-700);color:#fff;border-radius:999px;min-width:20px;height:20px;display:grid;place-items:center;font-size:.7rem;padding:0 6px}
-.cart-btn:hover .cart-count{background:#fff;color:var(--burgundy-900)}
-.nav-toggle{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:8px 11px;cursor:pointer;color:var(--burgundy-900)}
-
-/* ---------- Buttons ---------- */
-.btn{display:inline-block;text-align:center;padding:14px 28px;border-radius:30px;font-size:.82rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;cursor:pointer;transition:all .25s var(--ease);border:1px solid transparent}
-.btn--primary{background:var(--burgundy-700);color:#fff;border-color:var(--burgundy-700)}
-.btn--primary:hover{background:var(--burgundy-900);border-color:var(--burgundy-900);box-shadow:var(--shadow-lg)}
-.btn--ghost{background:rgba(255,255,255,.12);color:#fff;border-color:var(--rose-200);backdrop-filter:blur(4px)}
-.btn--ghost:hover{background:#fff;color:var(--burgundy-900)}
-.btn--gold{background:var(--gold);color:var(--burgundy-900);border-color:var(--gold)}
-.btn--gold:hover{background:#B08A1E;border-color:#B08A1E}
-.btn--outline{background:transparent;color:var(--burgundy-900);border-color:var(--line)}
-.btn--outline:hover{border-color:var(--burgundy-700);background:var(--blush-50)}
-.btn--block{display:block;width:100%}
-.btn--sm{padding:10px 20px;font-size:.75rem}
-
-/* ---------- Media with graceful fallback ---------- */
-.media{position:relative;overflow:hidden;background:var(--blush-50)}
-.media img{width:100%;height:100%;object-fit:cover;transition:transform .55s var(--ease)}
-.media--fallback::after{
-  content:attr(data-label);position:absolute;inset:0;
-  background:linear-gradient(135deg,var(--blush-50),var(--rose-200));
-  display:grid;place-items:center;text-align:center;padding:20px;
-  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--burgundy-900);
-}
-
-/* ---------- Hero ---------- */
-.hero{position:relative;text-align:center;color:#fff;padding:118px 0 100px;background:var(--burgundy-900)}
-.hero-inner{max-width:820px;margin-inline:auto}
-.hero .eyebrow{color:var(--rose-200);font-size:1.6rem}
-.hero h1{color:#fff;font-size:clamp(2.2rem,5.6vw,3.5rem);margin:8px 0 18px}
-.hero p{color:var(--blush-50);font-weight:300;font-size:1.03rem;max-width:620px;margin:0 auto 30px}
-.hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-
-/* ---------- Trust strip ---------- */
-.trust{background:var(--card);border-bottom:1px solid var(--line)}
-.trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;padding:26px 0;text-align:center}
-.trust-item strong{display:block;font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--burgundy-900)}
-.trust-item span{font-size:.82rem;color:var(--ink-muted)}
-
-/* ---------- Collection cards ---------- */
-.collections{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:22px}
-.collection{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);transition:all .3s var(--ease);display:block}
-.collection:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
-.collection:hover .media img{transform:scale(1.04)}
-.collection .media{height:200px}
-.collection-body{padding:20px}
-.collection h3{font-size:1.45rem;margin-bottom:8px}
-.palette{display:flex;gap:7px;margin-bottom:10px}
-.palette span{width:14px;height:14px;border-radius:50%;border:1px solid rgba(0,0,0,.12)}
-.collection p{font-size:.87rem;color:var(--ink-muted);line-height:1.55}
-.collection-cta{margin-top:12px;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--burgundy-700)}
-.collection-cta::after{content:" →"}
-.collection[aria-disabled="true"]{opacity:.9;pointer-events:none}
-.collection[aria-disabled="true"] .collection-cta{color:var(--ink-muted)}
-
-/* ---------- Filters ---------- */
-.filters{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:34px}
-.filter{background:var(--card);border:1px solid var(--line);padding:10px 22px;border-radius:25px;font-size:.83rem;font-weight:600;cursor:pointer;transition:all .25s var(--ease);color:var(--ink)}
-.filter:hover{border-color:var(--rose-400)}
-.filter[aria-pressed="true"]{background:var(--burgundy-700);color:#fff;border-color:var(--burgundy-700)}
-
-/* ---------- Product cards ---------- */
-.products{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:24px}
-.product{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:all .3s var(--ease)}
-.product:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
-.product .media{height:216px}
-.product:hover .media img{transform:scale(1.05)}
-.product-body{padding:20px;display:flex;flex-direction:column;flex:1}
-.kicker{font-size:.68rem;text-transform:uppercase;letter-spacing:1.1px;color:var(--rose-600);font-weight:700;margin-bottom:4px}
-.product h3{font-size:1.28rem;margin-bottom:6px}
-.product h3 a:hover{color:var(--burgundy-700);text-decoration:underline}
-.price{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--burgundy-700)}
-.price small{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:.72rem;font-weight:500;color:var(--ink-muted);letter-spacing:.2px;line-height:1.4}
-.product p{font-size:.86rem;color:var(--ink-muted);line-height:1.55;margin:10px 0 18px;flex:1}
-.card-actions{display:grid;gap:8px}
-.add-btn{width:100%;background:var(--blush-50);color:var(--burgundy-900);border:1px solid var(--line);padding:11px 15px;border-radius:20px;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.6px;cursor:pointer;transition:all .25s var(--ease)}
-.add-btn:hover{background:var(--burgundy-700);color:#fff;border-color:var(--burgundy-700)}
-.detail-link{display:block;text-align:center;padding:11px 15px;border-radius:20px;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.6px;background:var(--burgundy-700);color:#fff;transition:all .25s var(--ease)}
-.detail-link:hover{background:var(--burgundy-900)}
-
-.badge{position:absolute;top:12px;right:12px;z-index:2;font-size:.66rem;font-weight:700;padding:5px 11px;border-radius:12px;letter-spacing:.7px;text-transform:uppercase}
-.badge--quiet{background:rgba(255,255,255,.94);color:var(--burgundy-900);border:1px solid var(--line)}
-.badge--hero{background:var(--gold);color:var(--burgundy-900);box-shadow:0 2px 8px rgba(0,0,0,.18)}
-
-/* ---------- Feature banner ---------- */
-.feature{color:#fff;text-align:center;padding:92px 0;background:var(--burgundy-900)}
-.feature-inner{max-width:820px;margin-inline:auto}
-.feature .eyebrow{color:var(--rose-200)}
-.feature h2{color:#fff;font-size:clamp(2rem,5vw,3rem);margin-bottom:14px}
-.feature p{color:var(--blush-50);font-weight:300;margin-bottom:26px}
-.feature-list{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:28px}
-.feature-list li{border:1px solid rgba(230,178,186,.45);border-radius:999px;padding:6px 15px;font-size:.8rem}
-.feature-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-
-/* ---------- Timeline ---------- */
-.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px;counter-reset:step}
-.step{position:relative;padding-top:8px}
-.step::before{counter-increment:step;content:counter(step,decimal-leading-zero);font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--rose-200);display:block;line-height:1}
-.step h3{font-size:1.3rem;margin:8px 0 6px}
-.step p{font-size:.87rem;color:var(--ink-muted)}
-.step-when{font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:var(--gold-800);font-weight:700}
-
-/* ---------- Packages ---------- */
-.packages{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:24px;align-items:start}
-.package{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px 26px;text-align:center;position:relative;box-shadow:var(--shadow-sm);transition:all .3s var(--ease)}
-.package:hover{box-shadow:var(--shadow-lg)}
-.package--featured{border:2px solid var(--rose-400);padding-top:38px}
-.package-flag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--burgundy-900);font-size:.66rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:5px 14px;border-radius:12px;white-space:nowrap}
-.package h3{font-size:1.75rem}
-.package-price{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:600;color:var(--burgundy-700);line-height:1.1}
-.package-save{font-size:.75rem;color:var(--gold-800);font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px;display:block}
-.package>p{font-size:.87rem;color:var(--ink-muted);margin-bottom:6px}
-.package-list{text-align:left;margin:18px 0 24px;font-size:.87rem;color:var(--ink-muted)}
-.package-list li{padding:7px 0;border-bottom:1px dashed var(--line);display:flex;gap:9px;align-items:flex-start}
-.package-list li::before{content:"✓";color:var(--rose-600);font-weight:700;flex-shrink:0}
-
-/* ---------- Samples / split ---------- */
-.split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.split .media{border-radius:var(--r);height:330px;box-shadow:var(--shadow-lg)}
-.split h2{font-size:clamp(1.9rem,4vw,2.4rem);margin-bottom:12px}
-.split p{color:var(--ink-muted);margin-bottom:18px}
-
-/* ---------- Quotes ---------- */
-.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px}
-.quote{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px;box-shadow:var(--shadow-sm)}
-.quote blockquote{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--burgundy-900);line-height:1.5;margin-bottom:14px}
-.quote figcaption{font-size:.8rem;color:var(--ink-muted)}
-.quote figcaption strong{display:block;color:var(--ink);font-size:.86rem}
-
-/* ---------- Story ---------- */
-.story{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
-.story .media{border-radius:var(--r);height:420px;box-shadow:var(--shadow-lg)}
-.story p{color:var(--ink-muted);margin-bottom:16px;font-size:.95rem;line-height:1.8}
-.pullquote{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-style:italic;color:var(--burgundy-700);padding-left:18px;border-left:3px solid var(--rose-400);margin:20px 0}
-
-/* ---------- FAQ / accordion ---------- */
-.faq{max-width:860px;margin-inline:auto}
-.faq details{background:#fff;border:1px solid var(--line);border-radius:10px;margin-bottom:12px;overflow:hidden}
-.faq summary{cursor:pointer;padding:17px 20px;font-weight:600;font-size:.94rem;color:var(--burgundy-900);display:flex;justify-content:space-between;gap:14px;align-items:center;list-style:none}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--rose-600);line-height:1}
-.faq details[open] summary::after{content:"–"}
-.faq details p{padding:0 20px 18px;font-size:.9rem;color:var(--ink-muted)}
-.faq details ul{padding:0 20px 18px;font-size:.9rem;color:var(--ink-muted)}
-.faq details li{padding-left:16px;position:relative;margin-bottom:6px}
-.faq details li::before{content:"—";position:absolute;left:0;color:var(--rose-400)}
-
-/* ---------- Enquiry form ---------- */
-.enquiry{background:var(--burgundy-900);color:var(--blush-50)}
-.enquiry h2{color:#fff}
-.enquiry .eyebrow{color:var(--rose-200)}
-.enquiry-form{max-width:720px;margin-inline:auto;background:rgba(255,255,255,.05);border:1px solid rgba(230,178,186,.28);border-radius:var(--r);padding:30px}
-.field{margin-bottom:18px}
-.field label{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:7px;font-weight:600;color:var(--rose-200)}
-.field input,.field textarea,.field select{width:100%;padding:12px 14px;border-radius:8px;border:1px solid rgba(230,178,186,.35);background:rgba(255,255,255,.94);color:var(--ink);font:inherit;font-size:.92rem}
-.field textarea{min-height:130px;resize:vertical}
-.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.field-hint{font-size:.75rem;color:var(--rose-200);margin-top:6px}
-.form-error{color:#FFD5DA;font-size:.8rem;margin-top:6px;display:none}
-.field[data-invalid="true"] .form-error{display:block}
-.field[data-invalid="true"] input,.field[data-invalid="true"] textarea{border-color:#FF9AA6;border-width:2px}
-.form-status{margin-top:16px;font-size:.9rem;padding:14px;border-radius:8px;background:rgba(230,178,186,.16);display:none}
-.form-status[data-visible="true"]{display:block}
-
-/* ---------- Footer ---------- */
-footer{background:var(--ink);color:var(--blush-50);padding:58px 0 24px;font-size:.87rem}
-.footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1.3fr;gap:34px;margin-bottom:38px}
-.footer-brand .logo{color:#fff}
-.footer-brand p{color:#A79598;font-size:.85rem;margin-top:12px}
-footer h3{font-size:1.15rem;color:var(--rose-200);margin-bottom:14px}
-.footer-links li{margin-bottom:8px}
-.footer-links a{color:#CFC0C2;transition:color .25s var(--ease)}
-.footer-links a:hover{color:#fff;text-decoration:underline}
-.socials{display:flex;gap:12px;margin-top:14px}
-.socials a{width:36px;height:36px;border:1px solid rgba(255,255,255,.22);border-radius:50%;display:grid;place-items:center;transition:all .25s var(--ease)}
-.socials a:hover{background:var(--rose-600);border-color:var(--rose-600)}
-.socials svg{width:16px;height:16px;fill:currentColor}
-.footer-contact p{color:#A79598;font-size:.85rem;margin-bottom:6px}
-.footer-contact a{color:var(--rose-200);font-weight:600}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;text-align:center;color:#8F8083;font-size:.78rem}
-.footer-bottom a{color:#A79598;text-decoration:underline}
-
-/* ==========================================================================
-   Product detail page (PDP)
-   ========================================================================== */
-
-.breadcrumb{background:var(--blush-50);border-bottom:1px solid var(--line);padding:12px 0;font-size:.78rem;color:var(--ink-muted)}
-.breadcrumb ol{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.breadcrumb li:not(:last-child)::after{content:"/";margin-left:8px;color:var(--rose-400)}
-.breadcrumb a:hover{color:var(--burgundy-700);text-decoration:underline}
-.breadcrumb [aria-current]{color:var(--ink);font-weight:600}
-
-/* Persistent collection preference bar */
-.collection-bar{display:none;background:var(--burgundy-900);color:#fff;padding:9px 0;font-size:.8rem}
-.collection-bar[data-visible="true"]{display:block}
-.collection-bar .container{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}
-.collection-bar strong{color:var(--rose-200);font-weight:600}
-.collection-bar button{background:none;border:1px solid rgba(230,178,186,.5);color:#fff;border-radius:20px;padding:3px 12px;font-size:.72rem;cursor:pointer;transition:all .25s var(--ease)}
-.collection-bar button:hover{background:#fff;color:var(--burgundy-900)}
-
-.pdp{padding:44px 0 70px}
-.pdp-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:52px;align-items:start}
-
-/* Gallery */
-.gallery-main{border-radius:var(--r);overflow:hidden;height:460px;box-shadow:var(--shadow-lg);position:relative}
-.gallery-thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:12px}
-.thumb{border:2px solid transparent;border-radius:8px;overflow:hidden;height:74px;cursor:pointer;padding:0;background:var(--blush-50);position:relative}
-.thumb[aria-current="true"]{border-color:var(--burgundy-700)}
-.thumb:hover{border-color:var(--rose-400)}
-
-/* Configurator */
-.pdp-head h1{font-size:clamp(2rem,4.4vw,2.8rem);margin:4px 0 10px}
-.pdp-head p.lede{margin-bottom:20px}
-.price-live{background:var(--blush-50);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;margin-bottom:22px}
-.price-live .total{font-family:'Cormorant Garamond',serif;font-size:2.3rem;font-weight:600;color:var(--burgundy-700);line-height:1.1}
-.price-live .per{font-size:.82rem;color:var(--ink-muted)}
-.price-live .break-note{font-size:.76rem;color:var(--gold-800);font-weight:700;margin-top:6px}
-
-.opt{margin-bottom:22px;border-bottom:1px solid var(--line);padding-bottom:20px}
-.opt:last-of-type{border-bottom:none}
-.opt legend,.opt .opt-label{font-size:.74rem;text-transform:uppercase;letter-spacing:1.1px;font-weight:700;color:var(--burgundy-900);margin-bottom:4px;display:block}
-.opt-help{font-size:.79rem;color:var(--ink-muted);margin-bottom:11px}
-.chips{display:flex;flex-wrap:wrap;gap:9px}
-.chip{position:relative;cursor:pointer}
-.chip input{position:absolute;opacity:0;width:0;height:0}
-.chip span{
-  display:block;border:1px solid var(--line);background:#fff;border-radius:10px;
-  padding:9px 15px;font-size:.84rem;font-weight:500;transition:all .2s var(--ease);line-height:1.35;
-}
-.chip span em{display:block;font-style:normal;font-size:.72rem;color:var(--ink-muted);margin-top:1px}
-.chip input:checked+span{border-color:var(--burgundy-700);background:var(--burgundy-700);color:#fff;box-shadow:var(--shadow-sm)}
-.chip input:checked+span em{color:var(--rose-200)}
-.chip input:focus-visible+span{outline:3px solid var(--rose-600);outline-offset:2px}
-.chip:hover span{border-color:var(--rose-400)}
-
-.chip--swatch span{padding-left:38px}
-.chip--swatch span::before{content:"";position:absolute;left:11px;top:50%;transform:translateY(-50%);width:19px;height:19px;border-radius:50%;border:1px solid rgba(0,0,0,.18);background:var(--sw)}
-
-.addons{display:grid;gap:9px}
-.addon{display:flex;gap:11px;align-items:flex-start;border:1px solid var(--line);background:#fff;border-radius:10px;padding:11px 14px;cursor:pointer;transition:all .2s var(--ease)}
-.addon:hover{border-color:var(--rose-400)}
-.addon:has(input:checked){border-color:var(--burgundy-700);background:var(--blush-50)}
-.addon input{margin-top:4px;accent-color:var(--burgundy-700);width:16px;height:16px;flex-shrink:0}
-.addon-text{flex:1}
-.addon-text strong{display:block;font-size:.87rem;font-weight:600}
-.addon-text span{font-size:.78rem;color:var(--ink-muted)}
-.addon-price{font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--burgundy-700);font-size:1rem;white-space:nowrap}
-
-.qty-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.qty-stepper{display:flex;align-items:center;gap:8px}
-.qty-stepper button{width:36px;height:36px;border:1px solid var(--line);background:var(--blush-50);border-radius:50%;cursor:pointer;color:var(--burgundy-900);font-weight:700;font-size:1.1rem;line-height:1}
-.qty-stepper button:hover{background:var(--burgundy-700);color:#fff;border-color:var(--burgundy-700)}
-.qty-stepper input{width:82px;text-align:center;padding:9px;border:1px solid var(--line);border-radius:8px;font:inherit}
-.qty-presets{display:flex;gap:7px;flex-wrap:wrap}
-.qty-presets button{border:1px solid var(--line);background:#fff;border-radius:20px;padding:6px 13px;font-size:.76rem;cursor:pointer;transition:all .2s var(--ease)}
-.qty-presets button:hover{background:var(--burgundy-700);color:#fff;border-color:var(--burgundy-700)}
-
-.pdp-cta{position:sticky;bottom:0;background:#fff;padding:16px 0 4px;border-top:1px solid var(--line);margin-top:8px;z-index:10}
-.pdp-reassure{display:flex;flex-wrap:wrap;gap:14px;margin-top:14px;font-size:.78rem;color:var(--ink-muted)}
-.pdp-reassure span::before{content:"✓ ";color:var(--rose-600);font-weight:700}
-
-/* Spec table */
-.spec-table{width:100%;border-collapse:collapse;font-size:.88rem}
-.spec-table th,.spec-table td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
-.spec-table th{width:38%;color:var(--burgundy-900);font-weight:600;background:var(--blush-50)}
-.spec-table td{color:var(--ink-muted)}
-
-/* Included / excluded lists */
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:30px}
-.tick-list li{padding:8px 0 8px 26px;position:relative;font-size:.89rem;color:var(--ink-muted);border-bottom:1px dashed var(--line)}
-.tick-list li::before{content:"✓";position:absolute;left:0;color:var(--rose-600);font-weight:700}
-.tick-list--alt li::before{content:"+";color:var(--gold-800)}
-
-/* Pairs with */
-.pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
-.pair{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);transition:all .3s var(--ease)}
-.pair:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
-.pair .media{height:140px}
-.pair-body{padding:14px 16px}
-.pair-body h3{font-size:1.1rem}
-.pair-body p{font-size:.78rem;color:var(--ink-muted)}
-
-/* ==========================================================================
-   Collection page
-   ========================================================================== */
-
-.coll-hero{padding:70px 0;background:var(--blush-50);border-bottom:1px solid var(--line)}
-.coll-hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
-.coll-hero h1{font-size:clamp(2.2rem,5vw,3.2rem);margin:6px 0 14px}
-.coll-hero .media{border-radius:var(--r);height:380px;box-shadow:var(--shadow-lg)}
-
-.ink-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
-.ink{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm)}
-.ink-swatch{height:84px}
-.ink-body{padding:13px 15px}
-.ink-body strong{display:block;font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--burgundy-900)}
-.ink-body span{font-size:.75rem;color:var(--ink-muted);letter-spacing:.5px}
-
-.specimen{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:34px;box-shadow:var(--shadow-sm)}
-.specimen-row{border-bottom:1px dashed var(--line);padding:18px 0}
-.specimen-row:last-child{border-bottom:none}
-.specimen-label{font-size:.7rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--rose-600);font-weight:700;margin-bottom:6px}
-.specimen-sample{color:var(--burgundy-900);line-height:1.25}
-.specimen-meta{font-size:.76rem;color:var(--ink-muted);margin-top:6px}
-
-.suite-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
-.suite-item{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);transition:all .3s var(--ease)}
-.suite-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
-.suite-item .media{height:170px}
-.suite-body{padding:15px 17px}
-.suite-body h3{font-size:1.15rem;margin-bottom:3px}
-.suite-body p{font-size:.79rem;color:var(--ink-muted)}
-.suite-body .from{font-family:'Cormorant Garamond',serif;color:var(--burgundy-700);font-weight:600;font-size:1rem;margin-top:6px;display:block}
-
-.venue-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
-.venue{border-left:3px solid var(--rose-400);padding-left:16px}
-.venue h3{font-size:1.2rem;margin-bottom:4px}
-.venue p{font-size:.86rem;color:var(--ink-muted)}
-
-/* ==========================================================================
-   Basket drawer / toast (injected by JS on every page)
-   ========================================================================== */
-
-.overlay{position:fixed;inset:0;background:rgba(43,29,32,.5);opacity:0;visibility:hidden;transition:all .3s var(--ease);z-index:1000}
-.overlay[data-open="true"]{opacity:1;visibility:visible}
-.drawer{position:fixed;top:0;right:0;height:100dvh;width:min(420px,100%);background:#fff;z-index:1001;transform:translateX(100%);transition:transform .32s var(--ease);display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(74,16,24,.2)}
-.drawer[data-open="true"]{transform:translateX(0)}
-.drawer-head{display:flex;justify-content:space-between;align-items:center;padding:20px;border-bottom:1px solid var(--line)}
-.drawer-head h2{font-size:1.5rem}
-.drawer-close{background:none;border:none;font-size:1.6rem;line-height:1;cursor:pointer;color:var(--ink-muted);padding:4px 8px}
-.drawer-body{flex:1;overflow-y:auto;padding:18px 20px}
-.drawer-empty{text-align:center;padding:50px 10px;color:var(--ink-muted)}
-.drawer-empty p{font-size:.9rem;margin:10px 0 20px}
-.line{display:grid;grid-template-columns:1fr auto;gap:8px;padding:15px 0;border-bottom:1px solid var(--line)}
-.line h3{font-size:1.08rem}
-.line-meta{font-size:.75rem;color:var(--ink-muted);line-height:1.5}
-.line-spec{font-size:.74rem;color:var(--ink-muted);background:var(--blush-50);border-radius:6px;padding:6px 9px;margin:6px 0;line-height:1.5}
-.line-total{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--burgundy-700);text-align:right;white-space:nowrap}
-.qty{display:flex;align-items:center;gap:8px;margin-top:8px}
-.qty button{width:28px;height:28px;border:1px solid var(--line);background:var(--blush-50);border-radius:50%;cursor:pointer;color:var(--burgundy-900);font-weight:700;line-height:1}
-.qty button:hover{background:var(--burgundy-700);color:#fff;border-color:var(--burgundy-700)}
-.qty input{width:60px;text-align:center;padding:4px;border:1px solid var(--line);border-radius:6px;font:inherit;font-size:.85rem}
-.line-remove{background:none;border:none;color:var(--rose-600);font-size:.76rem;text-decoration:underline;cursor:pointer;padding:0;margin-top:6px;text-align:left}
-.drawer-foot{border-top:1px solid var(--line);padding:20px;background:var(--blush-50)}
-.subtotal{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
-.subtotal strong{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--burgundy-700)}
-.drawer-note{font-size:.75rem;color:var(--ink-muted);margin-bottom:14px}
-
-.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,160%);background:var(--burgundy-900);color:#fff;padding:13px 22px;border-radius:30px;font-size:.86rem;font-weight:600;z-index:1200;box-shadow:var(--shadow-lg);transition:transform .32s var(--ease);max-width:90vw;text-align:center}
-.toast[data-visible="true"]{transform:translate(-50%,0)}
-
-/* ==========================================================================
-   Responsive
-   ========================================================================== */
-
-@media (max-width:992px){
-  .story,.split,.pdp-grid,.coll-hero-grid,.two-col{grid-template-columns:1fr;gap:32px}
-  .footer-grid{grid-template-columns:1fr 1fr}
-  .nav-toggle{display:block}
-  .site-header{position:relative}
-  .nav{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;gap:0;padding:8px 0;border-bottom:1px solid var(--line);box-shadow:var(--shadow-lg);z-index:50}
-  .nav[data-open="true"]{display:flex}
-  .nav li{width:100%;border-bottom:1px solid var(--line)}
-  .nav li:last-child{border-bottom:none}
-  .nav a{display:block;padding:14px 22px}
-  .gallery-main{height:340px}
-  .pdp-cta{position:static;border-top:none;padding-top:0}
-}
-
-@media (max-width:640px){
-  .section{padding:56px 0}
-  .hero{padding:80px 0 66px}
-  .story .media,.split .media,.coll-hero .media{height:240px}
-  .gallery-main{height:260px}
-  .gallery-thumbs{grid-template-columns:repeat(4,1fr)}
-  .thumb{height:60px}
-  .field-row{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr;gap:28px}
-  .logo{font-size:1.7rem}
-  .btn{width:100%}
-  .hero-ctas,.feature-ctas{flex-direction:column}
-  .specimen{padding:22px}
-  .pdp-cta{position:sticky;bottom:0;background:#fff;border-top:1px solid var(--line);padding:14px 0;box-shadow:0 -6px 20px rgba(74,16,24,.08)}
-}
-
-/* ==========================================================================
-   Added for the six-product range: lead-time notices, tier tables and the
-   personalisation dialog that captures couple names, dates and wording.
-   ========================================================================== */
-
-/* Lead time */
-.leadtime-pill{
-  display:inline-flex;align-items:center;gap:7px;background:var(--blush-50);
-  border:1px solid var(--line);border-radius:999px;padding:6px 14px;
-  font-size:.76rem;font-weight:600;color:var(--burgundy-900);letter-spacing:.3px;
-}
-.leadtime-pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);flex-shrink:0}
-.leadtime-banner{
-  background:var(--burgundy-900);color:var(--blush-50);text-align:center;
-  padding:11px 16px;font-size:.82rem;letter-spacing:.3px;
-}
-.leadtime-banner strong{color:var(--rose-200)}
-.product .leadtime-note{font-size:.72rem;color:var(--ink-muted);margin:0 0 12px;flex:0}
-
-/* Tier table on cards and in the dialog */
-.tiers-table{width:100%;border-collapse:collapse;font-size:.78rem;margin:2px 0 12px}
-.tiers-table th,.tiers-table td{padding:5px 8px;text-align:left;border-bottom:1px dashed var(--line)}
-.tiers-table th{color:var(--burgundy-900);font-weight:600;background:var(--blush-50)}
-.tiers-table td{color:var(--ink-muted)}
-.tiers-table tr:last-child td,.tiers-table tr:last-child th{border-bottom:none}
-.tiers-table .is-active td,.tiers-table .is-active th{background:var(--blush-50);color:var(--burgundy-700);font-weight:700}
-
-/* Personalisation dialog */
-.dlg{
-  position:fixed;inset:0;z-index:1100;display:none;
-  align-items:flex-start;justify-content:center;padding:24px 16px;overflow-y:auto;
-  background:rgba(43,29,32,.55);
-}
-.dlg[data-open="true"]{display:flex}
-.dlg-panel{
-  background:#fff;border-radius:var(--r);width:min(620px,100%);
-  box-shadow:0 24px 70px rgba(74,16,24,.3);margin:auto;overflow:hidden;
-}
-.dlg-head{padding:22px 26px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
-.dlg-head h2{font-size:1.6rem;line-height:1.15}
-.dlg-head p{font-size:.82rem;color:var(--ink-muted);margin-top:4px}
-.dlg-close{background:none;border:none;font-size:1.7rem;line-height:1;cursor:pointer;color:var(--ink-muted);padding:0 4px}
-.dlg-body{padding:22px 26px;max-height:min(62vh,640px);overflow-y:auto}
-.dlg-foot{padding:18px 26px 22px;border-top:1px solid var(--line);background:var(--blush-50)}
-
-.dlg .field{margin-bottom:16px}
-.dlg .field label{
-  display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:1px;
-  font-weight:700;color:var(--burgundy-900);margin-bottom:6px;
-}
-.dlg .field .req{color:var(--rose-600)}
-.dlg .field input,.dlg .field select,.dlg .field textarea{
-  width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:8px;
-  font:inherit;font-size:.9rem;background:#fff;color:var(--ink);
-}
-.dlg .field textarea{min-height:82px;resize:vertical}
-.dlg .field input:focus,.dlg .field select:focus,.dlg .field textarea:focus{border-color:var(--rose-400);outline-offset:1px}
-.dlg .field .hint{font-size:.74rem;color:var(--ink-muted);margin-top:5px}
-.dlg .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.dlg .field[data-invalid="true"] input,.dlg .field[data-invalid="true"] textarea{border-color:#C0392B;border-width:2px}
-.dlg .err{display:none;font-size:.76rem;color:#A93226;margin-top:5px;font-weight:600}
-.dlg .field[data-invalid="true"] .err{display:block}
-
-.dlg-price{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
-.dlg-price strong{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--burgundy-700);line-height:1}
-.dlg-per{font-size:.78rem;color:var(--ink-muted);margin-bottom:14px}
-.dlg-lead{font-size:.75rem;color:var(--gold-800);font-weight:700;margin-bottom:14px}
-
-@media (max-width:640px){
-  .dlg{padding:0}
-  .dlg-panel{border-radius:0;min-height:100dvh}
-  .dlg-body{max-height:none}
-  .dlg .field-row{grid-template-columns:1fr}
-}
-
-/* Real-photography feature block */
-.showcase{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
-.showcase .media{border-radius:var(--r);box-shadow:var(--shadow-lg);height:520px}
-.showcase h2{font-size:clamp(1.9rem,4vw,2.5rem);margin-bottom:14px}
-.showcase p{color:var(--ink-muted);margin-bottom:16px}
-@media (max-width:992px){.showcase{grid-template-columns:1fr;gap:28px}.showcase .media{height:340px}}
-
-/* Range grid — six products, larger cards */
-.range{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:26px}
-.range .product .media{height:250px}
-.price-from{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--ink-muted);font-weight:600;display:block}
-
-/* ==========================================================================
-   Real product photography.
-   The stock placeholders are landscape and crop happily. Our own photographs
-   are square (the sticker) and portrait (the favour bottle), so they must be
-   shown whole — a cropped circular sticker loses the wording around its edge.
-   Targeted by filename so no HTML changes are needed when photos are swapped.
-   ========================================================================== */
-
-.media img[src*="personalised-stickers"],
-.media img[src*="wedding-favours"]{
-  object-fit:contain;
-}
-
-.media:has(img[src*="personalised-stickers"]),
-.media:has(img[src*="wedding-favours"]){
-  background:var(--blush-50);
-  padding:14px;
-}
-
-/* Give the two portrait/square cards a little more height so they don't
-   sit in a letterboxed sliver. */
-.range .product .media:has(img[src*="personalised-stickers"]),
-.range .product .media:has(img[src*="wedding-favours"]){
-  height:300px;
-}
-
-/* The showcase blocks are large enough already — just remove the crop. */
-.showcase .media:has(img[src*="wedding-favours"]){height:560px;padding:20px}
-.showcase .media:has(img[src*="personalised-stickers"]){padding:24px}
-
-/* Fallback for browsers without :has() — no padded backdrop, but still uncropped */
-@supports not selector(:has(*)){
-  .media img[src*="personalised-stickers"],
-  .media img[src*="wedding-favours"]{background:var(--blush-50)}
-}
-
-/* ==========================================================================
-   Variant chooser — the grid of styles on a product page
-   ========================================================================== */
-
-.variants{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px}
-.variant{
-  background:var(--card);border:1px solid var(--line);border-radius:var(--r);
-  overflow:hidden;box-shadow:var(--shadow-sm);text-align:left;padding:0;
-  cursor:pointer;transition:all .28s var(--ease);display:flex;flex-direction:column;
-  font:inherit;color:inherit;width:100%;
-}
-.variant:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--rose-400)}
-.variant .media{height:210px}
-.variant-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
-.variant-body h3{font-size:1.2rem;margin-bottom:4px}
-.variant-price{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--burgundy-700);line-height:1.1}
-.variant-price small{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:.7rem;font-weight:500;color:var(--ink-muted);letter-spacing:.2px}
-.variant-body p{font-size:.83rem;color:var(--ink-muted);line-height:1.5;margin:8px 0 14px;flex:1}
-.variant-cta{
-  font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;
-  color:var(--burgundy-700);display:flex;align-items:center;gap:6px;
-}
-.variant-cta::after{content:"→";transition:transform .25s var(--ease)}
-.variant:hover .variant-cta::after{transform:translateX(4px)}
-.variant-flag{
-  position:absolute;top:12px;left:12px;z-index:2;background:var(--gold);
-  color:var(--burgundy-900);font-size:.64rem;font-weight:700;letter-spacing:.7px;
-  text-transform:uppercase;padding:4px 10px;border-radius:12px;
-}
-
-/* Product page intro */
-.p-intro{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center;padding:46px 0 8px}
-.p-intro .media{border-radius:var(--r);box-shadow:var(--shadow-lg);height:460px;background:var(--blush-50)}
-.p-intro h1{font-size:clamp(2.1rem,4.6vw,3rem);margin:6px 0 14px}
-.p-intro .price{font-size:1.6rem;margin-bottom:14px;display:block}
-.p-intro .lede{margin-bottom:18px}
-.p-facts{display:grid;gap:9px;margin:20px 0 24px}
-.p-facts li{font-size:.87rem;color:var(--ink-muted);padding-left:24px;position:relative}
-.p-facts li::before{content:"✓";position:absolute;left:0;color:var(--rose-600);font-weight:700}
-@media (max-width:992px){.p-intro{grid-template-columns:1fr;gap:26px;padding-top:28px}.p-intro .media{height:320px}}
-
-/* ==========================================================================
-   Range cards: shop-window treatment.
-   Photo, name, one line, one action. Detail belongs on the product page.
-   ========================================================================== */
-
-.range{grid-template-columns:repeat(auto-fill,minmax(275px,1fr));gap:22px}
-.range .product .media{height:215px}
-.range .product-body{padding:15px 18px 18px}
-.range .product .kicker{margin-bottom:2px;font-size:.65rem}
-.range .product h3{font-size:1.2rem;margin-bottom:7px}
-.range .product p{font-size:.85rem;line-height:1.45;margin:0 0 14px}
-.range .product .card-actions{margin-top:auto}
-.range .detail-link{padding:10px 14px;font-size:.74rem}
-
-/* The square sticker and portrait bottle no longer need extra height now the
-   cards are shorter — keep them uncropped but in proportion with the others. */
-.range .product .media:has(img[src*="personalised-stickers"]),
-.range .product .media:has(img[src*="wedding-favours"]){height:250px;padding:10px}
-
-/* ==========================================================================
-   Category card alignment.
-   The earlier rule gave the two real photographs a taller frame than the
-   stock ones, which pushed their text down and broke the row. Every card in
-   the grid now uses one height; only the fit changes.
-   ========================================================================== */
-
-.range .product .media,
-.range .product .media:has(img[src*="personalised-stickers"]),
-.range .product .media:has(img[src*="wedding-favours"]){
-  height:235px;
-}
-
-/* Uncropped photographs still get breathing room, but not extra height */
-.range .product .media:has(img[src*="personalised-stickers"]),
-.range .product .media:has(img[src*="wedding-favours"]){
-  padding:12px;
-}
-
-/* One line of description on every card keeps the buttons on the same line
-   even before flex alignment kicks in */
-.range .product p{min-height:2.6em}
+</script>
+</head>
+
+<body data-root="">
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<div class="topbar">Personalised favour bottles, stickers, invitations &amp; tags — handmade in the UK</div>
+<div class="leadtime-banner">
+  Please allow <strong>3 weeks</strong> from proof approval for every order — order early for peak Walima season
+</div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">Nuptias<span>Celebration Studio</span></a>
+    <nav id="primary-nav" class="nav" aria-label="Primary">
+      <li><a href="categories/bottles.html">Bottles</a></li>
+      <li><a href="categories/stickers.html">Stickers</a></li>
+      <li><a href="categories/wedding-invitations.html">Invitations</a></li>
+      <li><a href="categories/favour-tags.html">Favour tags</a></li>
+      <li><a href="#process">How it works</a></li>
+      <li><a href="#enquiry">Enquire</a></li>
+    </nav>
+    <div class="header-actions">
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">☰</button>
+      <button class="cart-btn" data-open-basket aria-label="Open your quote basket">
+        Basket <span class="cart-count" data-cart-count>0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero">
+  <div class="container hero-inner">
+    <span class="eyebrow">Your names. Your date. Your details.</span>
+    <h1>Personalised favours, stickers and invitations</h1>
+    <p>Favour bottles, personalised stickers, wedding invitations and favour tags — buy them together or entirely separately, all made by hand in our UK studio.</p>
+    <div class="hero-ctas">
+      <a href="#range" class="btn btn--primary">Shop the four categories</a>
+      <a href="categories/bottles.html" class="btn btn--ghost">Zam Zam bottle favours</a>
+    </div>
+  </div>
+</section>
+
+<section class="trust" aria-label="How we work">
+  <div class="container trust-grid">
+    <div class="trust-item"><strong>3 weeks</strong><span>Production from proof approval</span></div>
+    <div class="trust-item"><strong>3 working days</strong><span>To your first digital proof</span></div>
+    <div class="trust-item"><strong>Unlimited edits</strong><span>Until you approve the proof</span></div>
+    <div class="trust-item"><strong>Free UK delivery</strong><span>On orders over £150</span></div>
+  </div>
+</section>
+
+<!-- ================= THE FOUR CATEGORIES ================= -->
+<section class="section" id="range">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Four things, done properly</span>
+      <h2 class="section-title">Shop by category</h2>
+      <p class="section-intro">Each category opens into a selection to choose from. Buy one on its own, or put a whole favour together.</p>
+      <p style="margin-top:16px"><span class="leadtime-pill">3 week lead time on all orders</span></p>
+    </div>
+
+    <div class="range">
+
+      <article class="product">
+        <div class="media" data-label="Favour bottles">
+          <img src="images/category-bottles.jpg" data-fallback="images/wedding-favours.jpg"
+               width="900" height="1015" loading="lazy"
+               alt="50ml glass favour bottle for Zam Zam water with a personalised sticker and kraft tag">
+        </div>
+        <div class="product-body">
+          <span class="kicker">Bottles</span>
+          <h3>Favour bottles</h3>
+          <p>Six bottles, supplied empty.</p>
+          <div class="card-actions">
+            <a class="detail-link" href="categories/bottles.html">See the bottles</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="media" data-label="Personalised stickers">
+          <img src="images/personalised-stickers.jpg" width="900" height="900" loading="lazy"
+               alt="Personalised kraft sticker with Arabic calligraphy, names and the event date">
+        </div>
+        <div class="product-body">
+          <span class="kicker">Stickers</span>
+          <h3>Personalised stickers</h3>
+          <p>Six designs, four sizes.</p>
+          <div class="card-actions">
+            <a class="detail-link" href="categories/stickers.html">See the stickers</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="media" data-label="Wedding invitations">
+          <img src="images/category-invitations.jpg"
+               width="1200" height="783" loading="lazy"
+               alt="Wedding invitation card, envelope with a wax seal, vellum wrap and wedding rings on a pale surface">
+        </div>
+        <div class="product-body">
+          <span class="kicker">Invitations</span>
+          <h3>Wedding invitations</h3>
+          <p>Six designs, Nikah and bilingual.</p>
+          <div class="card-actions">
+            <a class="detail-link" href="categories/wedding-invitations.html">See the invitations</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="media" data-label="Favour tags">
+          <img src="images/category-favour-tags.jpg" data-fallback="images/wedding-favours.jpg"
+               width="900" height="1015" loading="lazy"
+               alt="Kraft favour tag with printed names and pre-cut jute twine">
+        </div>
+        <div class="product-body">
+          <span class="kicker">Tags</span>
+          <h3>Favour tags</h3>
+          <p>Six shapes, twine included.</p>
+          <div class="card-actions">
+            <a class="detail-link" href="categories/favour-tags.html">See the tags</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= BOTTLES SHOWCASE ================= -->
+<section class="section section--tint" id="favours">
+  <div class="container showcase">
+    <div class="media" data-label="Zam Zam water favour">
+      <img src="images/wedding-favours.jpg" width="900" height="1015" loading="lazy"
+           alt="Personalised Zam Zam water bottle favour with kraft tag, twine and Arabic calligraphy sticker">
+    </div>
+    <div>
+      <span class="eyebrow">Made for Nikah, Walima and Mehndi</span>
+      <h2>Favours your guests actually keep</h2>
+      <p>A 50ml glass bottle for Zam Zam water, your names and date on the sticker, a kraft tag with a message on the back, and twine tied by hand. It is the favour guests photograph and take home rather than leave on the table.</p>
+      <p>We set Arabic calligraphy and bilingual English and Arabic designs in-house, and you always see a proof of the Arabic before anything is printed. Celebrations of 300 to 600 favours are routine for us — the price per piece drops as the numbers rise.</p>
+      <p><strong>Or buy the parts separately.</strong> Bottles on their own, stickers on their own, tags on their own. Nothing is bundled unless you want it to be.</p>
+      <p style="margin-bottom:22px"><span class="leadtime-pill">3 weeks from proof approval</span></p>
+      <a class="btn btn--primary" href="categories/bottles.html">Start with the bottles</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STICKERS SHOWCASE ================= -->
+<section class="section">
+  <div class="container showcase" style="grid-template-columns:1.1fr .9fr">
+    <div>
+      <span class="eyebrow">The smallest detail, done well</span>
+      <h2>Personalised stickers</h2>
+      <p>The cheapest way to make everything on the table feel like it belongs together. Seal favour boxes, label bottles and jars, finish welcome bags, or use them as tiny signs on a sweet table.</p>
+      <p>Six designs, four materials — kraft, matt white, clear and gold foil — from 37mm up to 60mm, in round, square or scalloped shapes. Your names and date, a monogram, a short message, Arabic calligraphy, or all of it together as in the design shown.</p>
+      <p>Minimum 100, and the unit price falls sharply after that: <strong>£0.55 each at 100, £0.32 at 500</strong>. For a 500-guest Walima that is £160 for the detail everyone notices.</p>
+      <a class="btn btn--primary" href="categories/stickers.html">See the six designs</a>
+    </div>
+    <div class="media" data-label="Personalised sticker" style="border-radius:var(--r);box-shadow:var(--shadow-lg);height:440px">
+      <img src="images/personalised-stickers.jpg" width="900" height="900" loading="lazy"
+           alt="Kraft personalised sticker with Arabic calligraphy and the wording Zam Zam Water with the date">
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="section section--tint" id="process">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2 class="section-title">From your names to your table</h2>
+      <p class="section-intro">The three week lead time starts when you approve your proof, not when you order — so the sooner you send your details, the sooner the clock starts.</p>
+    </div>
+    <ol class="timeline">
+      <li class="step">
+        <span class="step-when">Day one</span>
+        <h3>Choose and personalise</h3>
+        <p>Pick a design, type your names and date, choose sizes and materials. The price updates as you go.</p>
+      </li>
+      <li class="step">
+        <span class="step-when">Within 3 working days</span>
+        <h3>Your proof arrives</h3>
+        <p>A full digital proof by email. Change it as many times as you like — revisions are free until you are happy.</p>
+      </li>
+      <li class="step">
+        <span class="step-when">3 weeks</span>
+        <h3>We make it</h3>
+        <p>Printing, cutting and hand finishing in our UK studio. Nothing is made until your written approval.</p>
+      </li>
+      <li class="step">
+        <span class="step-when">1–2 working days</span>
+        <h3>Tracked delivery</h3>
+        <p>Glass is packed in fitted trays. Free UK delivery on orders over £150.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= SAMPLES ================= -->
+<section class="section" id="samples">
+  <div class="container split">
+    <div class="media" data-label="The Nuptias sample pack">
+      <img src="images/sample-pack.jpg"
+           data-fallback="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80"
+           width="800" height="600" loading="lazy"
+           alt="Sample pack of sticker materials, tag boards and cardstock swatches">
+    </div>
+    <div>
+      <span class="eyebrow">See it and feel it first</span>
+      <h2>Sample pack — £6, refunded on your first order</h2>
+      <p>Sticker samples in all four materials, a kraft favour tag, a length of our twine, and five cardstock weights for invitations. Posted first class within one working day, so it does not eat into your three weeks.</p>
+      <button class="btn btn--primary" data-add data-name="Sample pack" data-price="6.00" data-min="1" data-unit="packs" data-unit-singular="pack">Add a sample pack</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section section--tint" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Good to know</span>
+      <h2 class="section-title">Frequently asked questions</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>How long will my order take?</summary>
+        <p>Three weeks from the moment you approve your proof. Your first proof arrives within three working days of ordering, so allow around four weeks in total. Plain bottles with no personalisation ship within one week. If your date is tighter, ask — we can sometimes work faster, but we would rather tell you honestly than let you down.</p>
+      </details>
+      <details>
+        <summary>Can I order just bottles, or just stickers?</summary>
+        <p>Yes. Every category is sold separately with its own minimum — 50 bottles, 100 stickers, 50 tags, 30 invitation suites. Nothing is bundled unless you want it to be. That said, adding stickers or tags while you are ordering bottles is cheaper than ordering them separately, because it shares one design setup.</p>
+      </details>
+      <details>
+        <summary>What details do you need from me?</summary>
+        <p>Your names exactly as you want them printed, and the date of your event. For stickers and tags we also need the text you want on them. Everything on this site collects these before it goes into your basket.</p>
+      </details>
+      <details>
+        <summary>Do you supply the Zam Zam water?</summary>
+        <p>No — the bottles come empty and unsealed with the caps loose, so you fill them yourself. Most couples do it the week before, and it goes faster than you would think with two people and a funnel.</p>
+      </details>
+      <details>
+        <summary>Can you set Arabic calligraphy?</summary>
+        <p>Yes, in-house, including bilingual English and Arabic layouts. We always send a proof of the Arabic for you to check before printing, because we would rather you spotted anything than us guess.</p>
+      </details>
+      <details>
+        <summary>Is the basket a checkout?</summary>
+        <p>No. It builds an estimate you send to us, and we come back with a firm quote and an invoice. Nothing is charged automatically, and nothing is made until you have approved a proof.</p>
+      </details>
+      <details>
+        <summary>Do you deliver, and what about breakages?</summary>
+        <p>Tracked UK delivery as standard, free over £150. Glass is packed in fitted trays. In the unlikely event something arrives damaged, send us a photograph within 48 hours and we will remake it.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ENQUIRY ================= -->
+<section class="section enquiry" id="enquiry">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Bespoke, bulk and anything unusual</span>
+      <h2 class="section-title">Tell us about your day</h2>
+      <p class="section-intro" style="color:var(--rose-200)">Send your basket over for a firm quote, or ask about something we have not listed. We reply within one working day.</p>
+    </div>
+
+    <form class="enquiry-form" id="enquiryForm" novalidate>
+      <div class="field-row">
+        <div class="field" data-field="name">
+          <label for="f-name">Your name</label>
+          <input type="text" id="f-name" name="name" autocomplete="name" required>
+          <p class="form-error">Enter the name we should address the quote to.</p>
+        </div>
+        <div class="field" data-field="email">
+          <label for="f-email">Email address</label>
+          <input type="email" id="f-email" name="email" autocomplete="email" required>
+          <p class="form-error">Enter an email address we can reply to, e.g. name@example.com.</p>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field" data-field="date">
+          <label for="f-date">Date of your event</label>
+          <input type="date" id="f-date" name="date">
+          <p class="field-hint">Approximate is fine — it tells us whether three weeks is comfortable.</p>
+        </div>
+        <div class="field" data-field="guests">
+          <label for="f-guests">Roughly how many guests?</label>
+          <input type="number" id="f-guests" name="guests" min="1" placeholder="e.g. 250">
+          <p class="field-hint">Drives your bottle, sticker and tag quantities.</p>
+        </div>
+      </div>
+
+      <div class="field" data-field="message">
+        <label for="f-message">What do you need?</label>
+        <textarea id="f-message" name="message" required placeholder="Your names, the venue, what you are after, and anything you have seen and liked."></textarea>
+        <p class="form-error">Tell us roughly what you need so we can quote accurately.</p>
+      </div>
+
+      <button type="submit" class="btn btn--gold btn--block">Send my enquiry</button>
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      <p class="field-hint" style="text-align:center;margin-top:14px">
+        Prefer email? Write to <a href="mailto:hello@nuptias.co.uk" style="color:#fff;text-decoration:underline">hello@nuptias.co.uk</a>
+      </p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Nuptias<span>Celebration Studio</span></a>
+        <p>Personalised favour bottles, stickers, invitations and tags, handmade in the UK. Nikah, Walima and Mehndi specialists.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/nuptias" rel="noopener me" target="_blank" aria-label="Nuptias on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 1.8.25 2.2.42.6.22 1 .49 1.4.9.4.4.68.8.9 1.4.17.4.36 1 .42 2.2.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.06 1.2-.25 1.8-.42 2.2a3.8 3.8 0 0 1-.9 1.4c-.4.4-.8.68-1.4.9-.4.17-1 .36-2.2.42-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.06-1.8-.25-2.2-.42a3.8 3.8 0 0 1-1.4-.9 3.8 3.8 0 0 1-.9-1.4c-.17-.4-.36-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.06-1.2.25-1.8.42-2.2.22-.6.49-1 .9-1.4.4-.4.8-.68 1.4-.9.4-.17 1-.36 2.2-.42C8.4 2.2 8.8 2.2 12 2.2zm0 3.2a6.6 6.6 0 1 0 0 13.2 6.6 6.6 0 0 0 0-13.2zm0 10.9a4.3 4.3 0 1 1 0-8.6 4.3 4.3 0 0 1 0 8.6zm6.9-11.1a1.55 1.55 0 1 1-3.1 0 1.55 1.55 0 0 1 3.1 0z"/></svg></a>
+          <a href="mailto:hello@nuptias.co.uk" aria-label="Email Nuptias"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13zm2.2.5 7.8 5.6L19.8 6H4.2zM20 7.9l-7.4 5.3a1 1 0 0 1-1.2 0L4 7.9V18h16V7.9z"/></svg></a>
+        </div>
+      </div>
+
+      <nav aria-label="Shop">
+        <h3>Shop</h3>
+        <ul class="footer-links">
+          <li><a href="categories/bottles.html">Favour bottles</a></li>
+          <li><a href="categories/stickers.html">Personalised stickers</a></li>
+          <li><a href="categories/wedding-invitations.html">Wedding invitations</a></li>
+          <li><a href="categories/favour-tags.html">Favour tags</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Information">
+        <h3>Information</h3>
+        <ul class="footer-links">
+          <li><a href="#process">How it works</a></li>
+          <li><a href="#faq">FAQs &amp; delivery</a></li>
+          <li><a href="#samples">Sample pack</a></li>
+          <li><a href="#enquiry">Enquire</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-contact">
+        <h3>Studio</h3>
+        <p>Monday – Saturday, 9:00am – 6:00pm</p>
+        <p><strong style="color:var(--rose-200)">3 week lead time</strong> on all orders</p>
+        <p>Replies within one working day</p>
+        <p style="margin-top:10px"><a href="mailto:hello@nuptias.co.uk">hello@nuptias.co.uk</a></p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="year">2026</span> Nuptias Celebration Studio. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/nuptias-products.js" defer></script>
+<script src="assets/nuptias.js" defer></script>
+</body>
+</html>
