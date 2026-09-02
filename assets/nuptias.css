@@ -643,3 +643,26 @@ footer h3{font-size:1.15rem;color:var(--rose-200);margin-bottom:14px}
    cards are shorter — keep them uncropped but in proportion with the others. */
 .range .product .media:has(img[src*="personalised-stickers"]),
 .range .product .media:has(img[src*="wedding-favours"]){height:250px;padding:10px}
+
+/* ==========================================================================
+   Category card alignment.
+   The earlier rule gave the two real photographs a taller frame than the
+   stock ones, which pushed their text down and broke the row. Every card in
+   the grid now uses one height; only the fit changes.
+   ========================================================================== */
+
+.range .product .media,
+.range .product .media:has(img[src*="personalised-stickers"]),
+.range .product .media:has(img[src*="wedding-favours"]){
+  height:235px;
+}
+
+/* Uncropped photographs still get breathing room, but not extra height */
+.range .product .media:has(img[src*="personalised-stickers"]),
+.range .product .media:has(img[src*="wedding-favours"]){
+  padding:12px;
+}
+
+/* One line of description on every card keeps the buttons on the same line
+   even before flex alignment kicks in */
+.range .product p{min-height:2.6em}
