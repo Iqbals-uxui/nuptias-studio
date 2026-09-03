@@ -190,6 +190,85 @@ window.NUPTIAS_PRODUCTS = {
         { label: "Pearl bead", delta: 0.16 }
       ]}
     ]
+  },
+
+  /* -------------------------------------------------- JEWELLERY BOXES */
+  "jewellery-boxes": {
+    name: "Jewellery box",
+    blurb: "From £12.76 each · sold individually · personalised lid",
+    base: 14.50, min: 1, unit: "boxes", unitSingular: "box",
+    qtyLabel: "How many boxes",
+    tiers: [[1, 1], [4, 0.94], [8, 0.88]],
+    notesPlaceholder: "Each recipient's name and role, and anything else we should engrave.",
+    fields: [
+      { key: "style", label: "Style", type: "select", options: [
+        { label: "Single ring box" },
+        { label: "Double ring box", delta: 2.50 },
+        { label: "Moss-lined keepsake box", delta: 3.00 },
+        { label: "Velvet-lined keepsake box", delta: 2.00 },
+        { label: "Engraved lid box", delta: 3.50 },
+        { label: "Deep trinket box", delta: 4.00 }
+      ]},
+      { key: "wood", label: "Finish", type: "select", options: [
+        { label: "Natural oak" },
+        { label: "Walnut", delta: 2.00 },
+        { label: "White painted", delta: 1.00 },
+        { label: "Black painted", delta: 1.00 }
+      ]},
+      { key: "lid", label: "What goes on the lid", type: "select", options: [
+        { label: "Initials" },
+        { label: "First name", delta: 1.00 },
+        { label: "Name and role — e.g. Amina, Bridesmaid", delta: 1.50 },
+        { label: "A short message", delta: 1.50 },
+        { label: "Nothing — plain lid", delta: -2.00 }
+      ]},
+      { key: "lidtext", label: "Text for the lid", type: "text",
+        placeholder: "e.g. Amina · Bridesmaid",
+        hint: "One box per recipient — list every name in the notes below." },
+      { key: "lining", label: "Lining", type: "select", options: [
+        { label: "Velvet" },
+        { label: "Satin", delta: 0.50 },
+        { label: "Preserved moss", delta: 1.50 },
+        { label: "Unlined", delta: -1.00 }
+      ]}
+    ]
+  },
+
+  /* --------------------------------------------- BRIDAL PARTY JEWELLERY */
+  "bridal-jewellery": {
+    name: "Bridal party jewellery",
+    blurb: "From £10.80 each · sold individually · gift-pouched",
+    base: 12.00, min: 1, unit: "pieces", unitSingular: "piece",
+    qtyLabel: "How many pieces",
+    tiers: [[1, 1], [4, 0.95], [8, 0.90]],
+    notesPlaceholder: "Who each piece is for, and any initials or engraving.",
+    fields: [
+      { key: "piece", label: "Piece", type: "select", options: [
+        { label: "Pearl stud earrings" },
+        { label: "Initial pendant necklace", delta: 3.00 },
+        { label: "Fine chain bracelet", delta: 1.50 },
+        { label: "Pearl hair pin", delta: -2.50 },
+        { label: "Earrings and necklace set", delta: 8.00 },
+        { label: "Anklet", delta: 1.00 }
+      ]},
+      { key: "metal", label: "Metal", type: "select", options: [
+        { label: "Gold plated" },
+        { label: "Sterling silver", delta: 1.50 },
+        { label: "Rose gold plated", delta: 1.00 }
+      ]},
+      { key: "engraving", label: "Personalisation", type: "select", options: [
+        { label: "None" },
+        { label: "Initial charm", delta: 2.00 },
+        { label: "Engraved initials", delta: 3.00 }
+      ]},
+      { key: "engravetext", label: "Initials or engraving", type: "text",
+        placeholder: "e.g. A.K.", hint: "Leave blank if you chose no personalisation." },
+      { key: "packaging", label: "Packaging", type: "select", options: [
+        { label: "Organza gift pouch" },
+        { label: "Card gift box", delta: 1.20 },
+        { label: "Place it inside a Nuptias jewellery box", delta: 0.00 }
+      ], hint: "The last option needs a jewellery box on your order too — add one alongside." }
+    ]
   }
 
 };
