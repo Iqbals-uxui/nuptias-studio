@@ -666,3 +666,34 @@ footer h3{font-size:1.15rem;color:var(--rose-200);margin-bottom:14px}
 /* One line of description on every card keeps the buttons on the same line
    even before flex alignment kicks in */
 .range .product p{min-height:2.6em}
+
+/* ==========================================================================
+   Five categories across on desktop.
+   Explicit column counts rather than auto-fill, so the row never breaks into
+   an awkward 4 + 1 as the range grows.
+   ========================================================================== */
+
+.range{grid-template-columns:repeat(5,1fr);gap:18px}
+.range .product .media,
+.range .product .media:has(img[src*="personalised-stickers"]),
+.range .product .media:has(img[src*="wedding-favours"]){height:200px}
+.range .product-body{padding:14px 15px 16px}
+.range .product h3{font-size:1.12rem;margin-bottom:6px}
+.range .product p{font-size:.81rem;min-height:2.4em;margin-bottom:12px}
+.range .detail-link{padding:9px 10px;font-size:.7rem;letter-spacing:.4px}
+
+@media (max-width:1160px){ .range{grid-template-columns:repeat(3,1fr);gap:20px} }
+@media (max-width:820px){  .range{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:480px){  .range{grid-template-columns:1fr} .range .product .media{height:230px} }
+
+/* Two product grids on one category page */
+.section-subhead{
+  display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:26px;
+}
+.section-subhead h2{font-size:clamp(1.6rem,3.4vw,2.1rem)}
+.section-subhead .from{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:.78rem;font-weight:600;
+  color:var(--ink-muted);letter-spacing:.3px;
+}
+.section-subhead p{width:100%;font-size:.9rem;color:var(--ink-muted);margin-top:2px}
