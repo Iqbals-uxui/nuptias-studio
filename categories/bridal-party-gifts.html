@@ -100,6 +100,7 @@
   <div class="container header-inner">
     <a href="../index.html" class="logo">Nuptias<span>Celebration Studio</span></a>
     <nav id="primary-nav" class="nav" aria-label="Primary">
+      <ul class="nav-list">
       <li><a href="bottles.html">Bottles</a></li>
       <li><a href="stickers.html">Stickers</a></li>
       <li><a href="wedding-invitations.html">Invitations</a></li>
@@ -107,6 +108,7 @@
       <li><a href="bridal-party-gifts.html" aria-current="page">Gifts</a></li>
       <li><a href="../index.html#process">How it works</a></li>
       <li><a href="../index.html#enquiry">Enquire</a></li>
+      </ul>
     </nav>
     <div class="header-actions">
       <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">☰</button>
@@ -127,13 +129,19 @@
 
 <main id="main">
 
-<section class="container p-intro">
-  <div class="media" data-label="Personalised jewellery box">
-    <img src="../images/category-jewellery-boxes.jpg" width="900" height="900"
-         alt="Personalised wooden ring box lined with preserved moss, resting on a table">
+<div class="notice">
+  <div class="container">
+    <strong>Coming soon.</strong> We are finalising suppliers and photography for this range.
+    Everything below is real and correctly priced — add what you want to your quote and we will
+    confirm availability and a firm date by email.
   </div>
+</div>
+
+
+<section class="container p-intro">
+  <div class="media media--fallback" data-label="Photography coming soon"></div>
   <div>
-    <span class="kicker">Bridal party gifts</span>
+    <span class="kicker">Bridal party gifts · coming soon</span>
     <h1>Bridesmaid jewellery boxes &amp; gifts</h1>
     <span class="price">Boxes from £12.76 · jewellery from £10.80</span>
     <p class="lede">Personalised keepsake boxes engraved with each name, and jewellery to go inside them. Buy either on its own, or pair them — there is no minimum on either.</p>
@@ -147,11 +155,30 @@
   </div>
 </section>
 
+
+<!-- Two things live on this page — say so before anyone has to scroll -->
+<section class="container jump" aria-label="What's on this page">
+  <a class="jump-card" href="#boxes">
+    <span class="jump-num">01</span>
+    <span class="jump-text">
+      <strong>Jewellery boxes</strong>
+      <span>Six styles · engraved lids · from £12.76</span>
+    </span>
+  </a>
+  <a class="jump-card" href="#jewellery">
+    <span class="jump-num">02</span>
+    <span class="jump-text">
+      <strong>The jewellery</strong>
+      <span>Six pieces · earrings, pendants, bracelets · from £10.80</span>
+    </span>
+  </a>
+</section>
+
 <!-- ============ JEWELLERY BOXES ============ -->
 <section class="section" id="boxes">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Part one</span>
+      <span class="eyebrow">Part one of two</span>
       <h2 class="section-title">Jewellery boxes</h2>
       <p class="section-intro">Prices are for a single box in natural oak with a velvet lining and initials on the lid. Choose a style and you can change the finish, lid text and lining before adding it.</p>
     </div>
@@ -244,6 +271,8 @@
       </button>
 
     </div>
+
+    <p class="section-more"><a href="#jewellery">Next: the jewellery that goes inside them &darr;</a></p>
   </div>
 </section>
 
@@ -251,7 +280,7 @@
 <section class="section section--tint" id="jewellery">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Part two</span>
+      <span class="eyebrow">Part two of two</span>
       <h2 class="section-title">The jewellery</h2>
       <p class="section-intro">Sold separately, with no minimum. Prices are for gold plate with no engraving, in an organza pouch. Choose the packaging option if you want it placed inside a box.</p>
     </div>
@@ -476,7 +505,7 @@
     <div class="pairs">
       <a class="pair" href="favour-tags.html">
         <div class="media" data-label="Favour tags">
-          <img src="../images/tag-kraft-luggage.jpg" data-fallback="../images/wedding-favours.jpg" width="800" height="800" loading="lazy" alt="Kraft tag with twine">
+          <img src="../images/tag-kraft-luggage.jpg" width="800" height="800" loading="lazy" alt="Kraft tag with twine">
         </div>
         <div class="pair-body"><h3>Gift tags</h3><p>From £0.32 each · name each box</p></div>
       </a>
