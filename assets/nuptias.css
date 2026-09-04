@@ -697,3 +697,88 @@ footer h3{font-size:1.15rem;color:var(--rose-200);margin-bottom:14px}
   color:var(--ink-muted);letter-spacing:.3px;
 }
 .section-subhead p{width:100%;font-size:.9rem;color:var(--ink-muted);margin-top:2px}
+
+/* ==========================================================================
+   Navigation list.
+   The links were <li> elements with no <ul> around them, which is invalid
+   HTML and made browsers draw default bullets between every item. They now
+   sit in a proper list; these rules carry the layout across to it.
+   ========================================================================== */
+
+.nav-list{
+  display:flex;align-items:center;gap:26px;
+  list-style:none;margin:0;padding:0;
+}
+.nav-list li{list-style:none;margin:0}
+
+@media (max-width:992px){
+  .nav-list{flex-direction:column;gap:0;width:100%;align-items:stretch}
+  .nav-list li{width:100%;border-bottom:1px solid var(--line)}
+  .nav-list li:last-child{border-bottom:none}
+}
+
+/* ==========================================================================
+   "What's on this page" jump cards.
+   Used where a category holds more than one product, so the second one is
+   visible without scrolling past the first.
+   ========================================================================== */
+
+.jump{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;
+  margin:8px auto 4px;padding-bottom:8px;
+}
+.jump-card{
+  display:flex;align-items:center;gap:16px;
+  background:var(--card);border:1px solid var(--line);border-left:4px solid var(--rose-400);
+  border-radius:var(--r);padding:18px 22px;box-shadow:var(--shadow-sm);
+  transition:all .25s var(--ease);
+}
+.jump-card:hover{
+  border-left-color:var(--burgundy-700);box-shadow:var(--shadow-lg);
+  transform:translateX(3px);
+}
+.jump-num{
+  font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--rose-200);
+  line-height:1;flex-shrink:0;
+}
+.jump-card:hover .jump-num{color:var(--rose-400)}
+.jump-text{display:flex;flex-direction:column;gap:2px}
+.jump-text strong{
+  font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:500;
+  color:var(--burgundy-900);
+}
+.jump-text span{font-size:.8rem;color:var(--ink-muted);line-height:1.4}
+
+.section-more{
+  text-align:center;margin-top:30px;padding-top:22px;border-top:1px solid var(--line);
+}
+.section-more a{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.25rem;
+  color:var(--burgundy-700);
+}
+.section-more a:hover{text-decoration:underline}
+
+@media (max-width:760px){ .jump{grid-template-columns:1fr;gap:12px} }
+
+/* ==========================================================================
+   Coming soon treatment
+   ========================================================================== */
+
+.badge--soon{
+  position:absolute;top:12px;left:12px;right:auto;
+  background:var(--gold);color:var(--burgundy-900);
+  font-size:.64rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
+  padding:5px 12px;border-radius:12px;z-index:3;
+}
+.product--soon .media{position:relative}
+.detail-link--soon{background:var(--ink-muted)}
+.detail-link--soon:hover{background:var(--burgundy-900)}
+
+.notice{
+  background:var(--blush-50);border-bottom:1px solid var(--line);
+  padding:14px 0;font-size:.86rem;color:var(--ink-muted);text-align:center;
+}
+.notice strong{color:var(--burgundy-900)}
+
+/* A media panel with no photograph yet still needs its own height */
+.media--fallback:empty,.media--fallback{min-height:120px}
