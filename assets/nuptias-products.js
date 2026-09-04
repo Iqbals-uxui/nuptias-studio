@@ -108,12 +108,10 @@ window.NUPTIAS_PRODUCTS = {
     notesPlaceholder: "Your full wording, the RSVP-by date, and any detail cards you need.",
     fields: [
       { key: "design", label: "Design", type: "select", options: [
-        { label: "Classic script" },
-        { label: "Modern minimal" },
-        { label: "Nikah gold" },
-        { label: "Floral" },
-        { label: "Islamic geometric" },
-        { label: "Bold monogram" }
+        { label: "Blush &amp; Gold" },
+        { label: "Botanical Green" },
+        { label: "Navy &amp; Gold Nikah" },
+        { label: "Something bespoke — we design it with you", flat: 45 }
       ]},
       { key: "format", label: "Format", type: "select", options: [
         { label: "Flat single card" },
