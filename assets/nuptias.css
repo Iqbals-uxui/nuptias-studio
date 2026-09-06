@@ -851,3 +851,8 @@ footer h3{font-size:1.15rem;color:var(--rose-200);margin-bottom:14px}
   .dropdown a{padding:13px 34px;border-radius:0;justify-content:flex-start;gap:8px}
   .dropdown-all{border-top:1px solid var(--line);margin:0;padding:0}
 }
+
+/* Card images: anchor the crop to the top rather than the centre, so when a
+   frame is shorter than the photo it keeps the composition (names, headings)
+   instead of slicing through the middle of it. */
+.range .product .media img{object-position:top center}
