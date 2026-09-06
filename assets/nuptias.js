@@ -77,6 +77,29 @@
     });
   }
 
+  /* ---------- Shop dropdown ----------
+     Hover opens it on desktop via CSS; this handles click, keyboard and
+     touch, where hover does not exist. */
+  var shopTrigger = document.querySelector('.nav-trigger');
+  if (shopTrigger) {
+    shopTrigger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = shopTrigger.getAttribute('aria-expanded') === 'true';
+      shopTrigger.setAttribute('aria-expanded', String(!open));
+    });
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.has-dropdown')) {
+        shopTrigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && shopTrigger.getAttribute('aria-expanded') === 'true') {
+        shopTrigger.setAttribute('aria-expanded', 'false');
+        shopTrigger.focus();
+      }
+    });
+  }
+
   /* ---------- Toast ---------- */
   var toast = document.createElement('div');
   toast.className = 'toast';
