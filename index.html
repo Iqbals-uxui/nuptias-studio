@@ -151,14 +151,15 @@
 
 <!-- Netlify Forms registration. Hidden from visitors; the basket drawer and the
      enquiry form below both post to this form by name. Do not delete. -->
-<form name="enquiry" netlify netlify-honeypot="bot-field" hidden>
+<form name="enquiry" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="enquiry">
   <input type="text" name="name">
-  <input type="email" name="email">
-  <input type="tel" name="phone">
-  <input type="date" name="event-date">
+  <input type="text" name="email">
+  <input type="text" name="phone">
+  <input type="text" name="event-date">
   <input type="text" name="guests">
-  <textarea name="notes"></textarea>
-  <textarea name="order"></textarea>
+  <input type="text" name="notes">
+  <input type="text" name="order">
   <input type="text" name="total">
   <input type="text" name="bot-field">
 </form>
