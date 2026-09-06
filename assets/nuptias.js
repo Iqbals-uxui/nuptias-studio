@@ -120,15 +120,31 @@
     '<div class="overlay" id="nxOverlay" hidden></div>' +
     '<aside class="drawer" id="nxDrawer" role="dialog" aria-modal="true" aria-labelledby="nxDrawerTitle" aria-hidden="true">' +
       '<div class="drawer-head">' +
+        '<button class="drawer-back" id="nxBack" hidden aria-label="Back to basket">&larr;</button>' +
         '<h2 id="nxDrawerTitle">Your quote basket</h2>' +
         '<button class="drawer-close" id="nxDrawerClose" aria-label="Close basket">&times;</button>' +
       '</div>' +
+
+      /* Step indicator — so it is obvious this is a two-step flow */
+      '<ol class="drawer-steps" id="nxSteps">' +
+        '<li data-step="1" aria-current="step">Your order</li>' +
+        '<li data-step="2">Your details</li>' +
+      '</ol>' +
+
       '<div class="drawer-body" id="nxDrawerBody"></div>' +
-      '<div class="drawer-foot">' +
+      '<div class="drawer-body" id="nxDetailsBody" hidden></div>' +
+
+      '<div class="drawer-foot" id="nxFootBasket">' +
         '<div class="subtotal"><span>Estimated total</span><strong id="nxSubtotal">£0.00</strong></div>' +
         '<p class="drawer-note">An estimate, not a payment. We confirm a firm price against your final quantities. ' +
         'Please allow <strong>' + LEAD_TIME + '</strong> for production.</p>' +
-        '<button class="btn btn--primary btn--block" id="nxToEnquiry">Send basket for a quote</button>' +
+        '<button class="btn btn--primary btn--block" id="nxToEnquiry">Continue to your details</button>' +
+      '</div>' +
+
+      '<div class="drawer-foot" id="nxFootDetails" hidden>' +
+        '<div class="subtotal"><span>Estimated total</span><strong id="nxSubtotal2">£0.00</strong></div>' +
+        '<p class="drawer-note">We reply within one working day with a firm quote. Nothing is charged now.</p>' +
+        '<button class="btn btn--primary btn--block" id="nxSend">Send my enquiry</button>' +
       '</div>' +
     '</aside>';
   while (shell.firstChild) document.body.appendChild(shell.firstChild);
@@ -231,6 +247,7 @@
 
   var lastFocused = null;
   function openDrawer() {
+    if (window.__nxShowStep) window.__nxShowStep(1);   /* always open on step one */
     lastFocused = document.activeElement;
     overlay.hidden = false;
     requestAnimationFrame(function () { overlay.setAttribute('data-open', 'true'); });
@@ -269,19 +286,170 @@
       '\n\nI understand production takes ' + LEAD_TIME + '.\n\n';
   }
 
+  /* ------------------------------------------------------------------
+     Step two: your details.
+     Kept inside the drawer rather than sending the visitor to a form on
+     another page, which read as a bug even when it worked.
+     ------------------------------------------------------------------ */
+  var detailsBody = document.getElementById('nxDetailsBody');
+  var footBasket  = document.getElementById('nxFootBasket');
+  var footDetails = document.getElementById('nxFootDetails');
+  var backBtn     = document.getElementById('nxBack');
+  var stepsEl     = document.getElementById('nxSteps');
+  var titleEl     = document.getElementById('nxDrawerTitle');
+
+  function buildDetails() {
+    /* Anything already given during personalisation is carried across, so
+       nobody is asked for the same thing twice. */
+    var withDate   = basket.find(function (i) { return i.eventDate; });
+    var withCouple = basket.find(function (i) { return i.couple; });
+    var date   = withDate   ? withDate.eventDate : '';
+    var couple = withCouple ? withCouple.couple  : '';
+
+    detailsBody.innerHTML =
+      '<p class="drawer-lead">Almost there — we just need to know who to send the quote to.</p>' +
+      (couple ? '<p class="drawer-carried">Quoting for <strong>' + esc(couple) + '</strong>' +
+        (date ? ' &middot; ' + esc(prettyDate(date)) : '') + '</p>' : '') +
+      '<div class="field" data-field="name">' +
+        '<label for="nx-name">Your name <span class="req">*</span></label>' +
+        '<input type="text" id="nx-name" autocomplete="name" placeholder="Who we should address the quote to">' +
+        '<p class="err">We need a name for the quote.</p>' +
+      '</div>' +
+      '<div class="field" data-field="email">' +
+        '<label for="nx-email">Email address <span class="req">*</span></label>' +
+        '<input type="email" id="nx-email" autocomplete="email" placeholder="name@example.com">' +
+        '<p class="err">We need an address to reply to.</p>' +
+      '</div>' +
+      '<div class="field">' +
+        '<label for="nx-phone">Phone <span class="opt">optional</span></label>' +
+        '<input type="tel" id="nx-phone" autocomplete="tel" placeholder="Quicker for anything complicated">' +
+      '</div>' +
+      '<div class="field">' +
+        '<label for="nx-date">Date of your event <span class="opt">' + (date ? 'carried over' : 'optional') + '</span></label>' +
+        '<input type="date" id="nx-date" value="' + esc(date) + '">' +
+        '<p class="hint">Tells us whether ' + LEAD_TIME + ' is comfortable.</p>' +
+      '</div>' +
+      '<div class="field">' +
+        '<label for="nx-notes">Anything else <span class="opt">optional</span></label>' +
+        '<textarea id="nx-notes" placeholder="Venue, guest numbers, deadlines, anything you have seen and liked."></textarea>' +
+      '</div>' +
+      '<p class="drawer-status" id="nxStatus" role="status" aria-live="polite"></p>';
+  }
+
+  function showStep(n) {
+    var onBasket = n === 1;
+    drawerBody.hidden   = !onBasket;
+    detailsBody.hidden  = onBasket;
+    footBasket.hidden   = !onBasket;
+    footDetails.hidden  = onBasket;
+    backBtn.hidden      = onBasket;
+    titleEl.textContent = onBasket ? 'Your quote basket' : 'Your details';
+    stepsEl.querySelectorAll('li').forEach(function (li) {
+      if (parseInt(li.dataset.step, 10) === n) li.setAttribute('aria-current', 'step');
+      else li.removeAttribute('aria-current');
+    });
+    document.getElementById('nxSubtotal2').textContent = money(basketTotal());
+    if (!onBasket) setTimeout(function () {
+      var f = document.getElementById('nx-name'); if (f) f.focus();
+    }, 80);
+  }
+
+  window.__nxShowStep = showStep;
+
   document.getElementById('nxToEnquiry').addEventListener('click', function () {
-    var field = document.getElementById('f-message');
-    if (field) {
-      if (basket.length) field.value = basketAsText();
-      closeDrawer();
-      var target = document.getElementById('enquiry');
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
-      setTimeout(function () { field.focus(); field.setSelectionRange(field.value.length, field.value.length); }, 500);
-    } else {
-      store.set(KEY_PREFILL, '1');
-      window.location.href = ROOT + 'index.html#enquiry';
-    }
+    if (!basket.length) { showToast('Your basket is empty'); return; }
+    buildDetails();
+    showStep(2);
   });
+  backBtn.addEventListener('click', function () { showStep(1); });
+
+  /* ------------------------------------------------------------------
+     Sending. Posts to Netlify Forms so enquiries arrive in the dashboard
+     and by email. Falls back to the visitor's mail client only if that
+     request fails, e.g. when the page is opened straight off disk.
+     ------------------------------------------------------------------ */
+  function encode(data) {
+    return Object.keys(data).map(function (k) {
+      return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]);
+    }).join('&');
+  }
+
+  document.getElementById('nxSend').addEventListener('click', function () {
+    var btn = this;
+    var status = document.getElementById('nxStatus');
+    var ok = true;
+
+    [['name', 'nx-name'], ['email', 'nx-email']].forEach(function (pair) {
+      var wrap = detailsBody.querySelector('[data-field="' + pair[0] + '"]');
+      var el = document.getElementById(pair[1]);
+      var valid = el.value.trim() !== '' &&
+        (pair[0] !== 'email' || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(el.value.trim()));
+      wrap.setAttribute('data-invalid', String(!valid));
+      if (!valid && ok) { el.focus(); ok = false; }
+    });
+    if (!ok) { status.textContent = 'Check the highlighted fields.'; status.className = 'drawer-status is-error'; return; }
+
+    var name = document.getElementById('nx-name').value.trim();
+    var payload = {
+      'form-name': 'enquiry',
+      name: name,
+      email: document.getElementById('nx-email').value.trim(),
+      phone: document.getElementById('nx-phone').value.trim(),
+      'event-date': document.getElementById('nx-date').value,
+      notes: document.getElementById('nx-notes').value.trim(),
+      order: basketAsText(),
+      total: money(basketTotal())
+    };
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    status.textContent = '';
+    status.className = 'drawer-status';
+
+    fetch(ROOT || '/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode(payload)
+    }).then(function (res) {
+      if (!res.ok) throw new Error('bad response');
+      sent(name);
+    }).catch(function () {
+      /* No backend reachable — hand it to the mail client rather than lose it */
+      btn.disabled = false;
+      btn.textContent = 'Send my enquiry';
+      var mail = 'mailto:hello@nuptias.co.uk?subject=' +
+        encodeURIComponent('Quote request — ' + name) + '&body=' +
+        encodeURIComponent('Name: ' + payload.name + '\nEmail: ' + payload.email +
+          '\nPhone: ' + (payload.phone || '—') +
+          '\nEvent date: ' + (payload['event-date'] || 'Not set') +
+          '\n\n' + payload.order + (payload.notes ? '\nNotes: ' + payload.notes : ''));
+      status.innerHTML = 'We could not send that automatically. ' +
+        '<a href="' + mail + '">Open it in your email instead</a>.';
+      status.className = 'drawer-status is-error';
+    });
+  });
+
+  function sent(name) {
+    detailsBody.innerHTML =
+      '<div class="drawer-done">' +
+        '<div class="drawer-tick" aria-hidden="true">&#10003;</div>' +
+        '<h3>Thank you, ' + esc(name.split(' ')[0]) + '</h3>' +
+        '<p>Your request is with us. We reply within one working day with a firm quote, ' +
+        'and your first proof follows within three working days of ordering.</p>' +
+        '<p class="drawer-done-note">Production takes ' + LEAD_TIME + '.</p>' +
+        '<button class="btn btn--outline btn--block" id="nxDone">Keep browsing</button>' +
+      '</div>';
+    footDetails.hidden = true;
+    stepsEl.hidden = true;
+    backBtn.hidden = true;
+    basket = [];
+    persist();
+    renderBasket();
+    document.getElementById('nxDone').addEventListener('click', function () {
+      closeDrawer();
+      setTimeout(function () { stepsEl.hidden = false; showStep(1); }, 350);
+    });
+  }
 
   renderBasket();
 
@@ -470,6 +638,9 @@
       spec: r.spec, details: r.details
     });
     closeDialog();
+    /* Show the basket straight away — otherwise the only feedback is a toast
+       and people are unsure whether anything happened. */
+    setTimeout(openDrawer, 220);
   }
 
   function closeDialog() {
@@ -658,19 +829,43 @@
         return;
       }
       var name = form.querySelector('#f-name').value.trim();
-      var mail = 'mailto:hello@nuptias.co.uk' +
-        '?subject=' + encodeURIComponent('Enquiry — ' + name) +
-        '&body=' + encodeURIComponent(
-          'Name: ' + name +
-          '\nEmail: ' + form.querySelector('#f-email').value.trim() +
-          '\nEvent date: ' + (form.querySelector('#f-date').value || 'Not set') +
-          '\n\n' + form.querySelector('#f-message').value.trim()
-        );
-      status.innerHTML = 'Thanks, ' + esc(name.split(' ')[0]) +
-        '. Your email app should open with the enquiry ready to send. If it does not, write to ' +
-        '<a href="mailto:hello@nuptias.co.uk" style="color:#fff">hello@nuptias.co.uk</a>.';
-      status.setAttribute('data-visible', 'true');
-      window.location.href = mail;
+      var payload = {
+        'form-name': 'enquiry',
+        name: name,
+        email: form.querySelector('#f-email').value.trim(),
+        'event-date': form.querySelector('#f-date').value,
+        guests: form.querySelector('#f-guests') ? form.querySelector('#f-guests').value : '',
+        notes: form.querySelector('#f-message').value.trim()
+      };
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true; btn.textContent = 'Sending…';
+      status.textContent = '';
+      status.setAttribute('data-visible', 'false');
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: Object.keys(payload).map(function (k) {
+          return encodeURIComponent(k) + '=' + encodeURIComponent(payload[k]);
+        }).join('&')
+      }).then(function (res) {
+        if (!res.ok) throw new Error('bad response');
+        form.reset();
+        btn.textContent = 'Sent';
+        status.innerHTML = 'Thank you, ' + esc(name.split(' ')[0]) +
+          '. We reply within one working day.';
+        status.setAttribute('data-visible', 'true');
+      }).catch(function () {
+        btn.disabled = false; btn.textContent = 'Send my enquiry';
+        var mail = 'mailto:hello@nuptias.co.uk?subject=' +
+          encodeURIComponent('Enquiry — ' + name) + '&body=' +
+          encodeURIComponent('Name: ' + payload.name + '\nEmail: ' + payload.email +
+            '\nEvent date: ' + (payload['event-date'] || 'Not set') +
+            '\nGuests: ' + (payload.guests || '—') + '\n\n' + payload.notes);
+        status.innerHTML = 'We could not send that automatically. ' +
+          '<a href="' + mail + '" style="color:#fff;text-decoration:underline">Open it in your email instead</a>.';
+        status.setAttribute('data-visible', 'true');
+      });
     });
   }
 
