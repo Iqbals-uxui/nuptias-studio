@@ -856,3 +856,68 @@ footer h3{font-size:1.15rem;color:var(--rose-200);margin-bottom:14px}
    frame is shorter than the photo it keeps the composition (names, headings)
    instead of slicing through the middle of it. */
 .range .product .media img{object-position:top center}
+
+/* ==========================================================================
+   Two-step basket drawer.
+   The quote request used to live on a different page, which felt like a bug
+   mid-flow. It is now step two of the drawer, with anything already given
+   during personalisation carried across.
+   ========================================================================== */
+
+.drawer-head{position:relative}
+.drawer-back{
+  background:none;border:none;cursor:pointer;font-size:1.15rem;line-height:1;
+  color:var(--ink-muted);padding:4px 10px 4px 0;transition:color .2s var(--ease);
+}
+.drawer-back:hover{color:var(--burgundy-700)}
+
+.drawer-steps{
+  display:flex;list-style:none;margin:0;padding:0;
+  border-bottom:1px solid var(--line);background:var(--blush-50);
+}
+.drawer-steps li{
+  flex:1;text-align:center;padding:11px 8px;font-size:.72rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.9px;color:var(--ink-muted);
+  border-bottom:2px solid transparent;
+}
+.drawer-steps li[aria-current="step"]{color:var(--burgundy-700);border-bottom-color:var(--burgundy-700)}
+
+.drawer-lead{font-size:.9rem;color:var(--ink-muted);margin-bottom:14px}
+.drawer-carried{
+  background:var(--blush-50);border:1px solid var(--line);border-radius:8px;
+  padding:10px 13px;font-size:.83rem;color:var(--ink-muted);margin-bottom:18px;
+}
+.drawer-carried strong{color:var(--burgundy-900)}
+
+#nxDetailsBody .field{margin-bottom:15px}
+#nxDetailsBody label{
+  display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:1px;
+  font-weight:700;color:var(--burgundy-900);margin-bottom:6px;
+}
+#nxDetailsBody .req{color:var(--rose-600)}
+#nxDetailsBody .opt{
+  color:var(--ink-muted);font-weight:500;text-transform:none;letter-spacing:0;font-size:.72rem;
+}
+#nxDetailsBody input,#nxDetailsBody textarea{
+  width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:8px;
+  font:inherit;font-size:.9rem;background:#fff;color:var(--ink);
+}
+#nxDetailsBody textarea{min-height:76px;resize:vertical}
+#nxDetailsBody .hint{font-size:.74rem;color:var(--ink-muted);margin-top:5px}
+#nxDetailsBody .err{display:none;font-size:.76rem;color:#A93226;font-weight:600;margin-top:5px}
+#nxDetailsBody .field[data-invalid="true"] .err{display:block}
+#nxDetailsBody .field[data-invalid="true"] input{border-color:#C0392B;border-width:2px}
+
+.drawer-status{font-size:.83rem;margin-top:12px;color:var(--ink-muted)}
+.drawer-status.is-error{color:#A93226;font-weight:600}
+.drawer-status a{text-decoration:underline;color:var(--burgundy-700)}
+
+.drawer-done{text-align:center;padding:34px 6px}
+.drawer-tick{
+  width:56px;height:56px;border-radius:50%;background:var(--blush-50);
+  border:2px solid var(--rose-400);color:var(--burgundy-700);
+  display:grid;place-items:center;font-size:1.6rem;margin:0 auto 18px;
+}
+.drawer-done h3{font-size:1.6rem;margin-bottom:10px}
+.drawer-done p{font-size:.9rem;color:var(--ink-muted);margin-bottom:12px}
+.drawer-done-note{font-size:.78rem;color:var(--gold-800);font-weight:700;margin-bottom:22px}
